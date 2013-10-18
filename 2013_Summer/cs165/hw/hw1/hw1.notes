@@ -1,0 +1,164 @@
+UNDERSTANDING THE PROBLEM
+
+    As I understand it, the problem is to:
+        (1) assign the largest and smallest values of several types of macro
+        (short, int, and long, both signed and unsigned from the standard library 'climits' to distinct variables of the
+        correct type (i.e., if the macro is of type int, the variable to which
+        is assigned should be initialized as int).
+        (2) Print (to the console, using cout) the values of each variable in
+        (a) decimal, (b) hexadecimal, and (c) octal by calling, respectively,
+        dec, hex, and oct while invoking cout
+        (3) Print the decimal values of the variables after adding 1 to the
+        largest value of each macro and subtracting 1 from the smallest value
+        of each macro.  I presume this is to be done in a manner similar to
+        part (2) of the problem, i.e. by incrementing or decrementing the
+        variable while invoking cout.
+        (4) Calculate the diretly the largest and smallest values of several
+        types of macro by using the pow funtion from the cmath library.
+
+Some inspiration taken from
+http://www.tutorialspoint.com/c_standard_library/limits_h.htm
+
+Consulted http://www.cplusplus.com/reference/cmath/pow/
+
+Blocking out ideas:
+
+#include<iostream>
+#include<cmath>
+#include<climits>
+
+using namespace std;
+
+int main() {
+
+    // Declaring and assigning variables
+
+    // short ints
+    short int maxShort = SHRT_MAX;
+    short int minShort = SHRT_MIN;
+    
+    // unsigned short ints
+    unsigned short int maxShortUnsigned = USHRT_MAX;
+    
+    // ints
+    int maxInt = INT_MAX;
+    int minInt = INT_MIN;
+    
+    // unsigned ints
+    unsigned int maxIntUnsigned = UINT_MAX;
+    
+    // long ints
+    long int maxLong = LONG_MAX;
+    long int minLong = LONG_MIN;
+    
+    // unsigned long ints
+    unsinged long int maxLongUnsigned = ULONG_MAX;
+    
+    cout << "I will now print the largest and smallest values of the macros\n";
+    cout << "short, int and long, in decimal, hexadecimal, and octal notation.\n";
+
+    // Print the values of the variables to the console in decimal format
+    cout << "The value of the largest short integer is " << dec << maxShort << " in decimal.\n";
+    cout << "The value of the smallest short integer is " << dec << minShort << " in decimal."\n;
+    cout << "The value of the largest unsigned short integer is " << dec << maxShortUnsigned << " in decimal.\n";
+    cout << "The value of the largest integer is " << dec << maxInt " in decimal\n";
+    cout << "The value of the smallest integer is " << dec << minInt " in decimal.\n";
+    cout << "The value of the largest unsigned integer is " << dec << maxIntUnsigned " in decimal.\n";
+    cout << "The value of the largest long integer is " << dec << maxLong << " in decimal.\n";
+    cout << "The value of the smallest long integer is " << dec << minLong << " in decimal.\n";
+    cout << "The value of the largest unsigned long integer is " << dec << maxLongUnsigned << " in decimal.\n";
+    cout << "\n";
+
+    // Print the values of the variables to the console in hexadecimal format
+    cout << "The value of the largest short integer is " << hex << maxShort << " in heximal.\n";
+    cout << "The value of the smallest short integer is " << hex << minShort << " in heximal."\n;
+    cout << "The value of the largest unsigned short integer is " << hex << maxShortUnsigned << " in heximal.\n";
+    cout << "The value of the largest integer is " << hex << maxInt " in heximal\n";
+    cout << "The value of the smallest integer is " << hex << minInt " in heximal.\n";
+    cout << "The value of the largest unsigned integer is " << hex << maxIntUnsigned " in heximal.\n";
+    cout << "The value of the largest long integer is " << hex << maxLong << " in heximal.\n";
+    cout << "The value of the smallest long integer is " << hex << minLong << " in heximal.\n";
+    cout << "The value of the largest unsigned long integer is " << hex << maxLongUnsigned << " in hexadecimal.\n";
+    cout << "\n";
+
+    // Print the values of the variables to the console in octal format
+    cout << "The value of the largest short integer is " << oct << maxShort << " in octal.\n";
+    cout << "The value of the smallest short integer is " << oct << minShort << " in octal."\n;
+    cout << "The value of the largest unsigned short integer is " << oct << maxShortUnsigned << " in octal.\n";
+    cout << "The value of the largest integer is " << oct << maxInt " in octal\n";
+    cout << "The value of the smallest integer is " << oct << minInt " in octal.\n";
+    cout << "The value of the largest unsigned integer is " << oct << maxIntUnsigned " in octal.\n";
+    cout << "The value of the largest long integer is " << oct << maxLong << " in octal.\n";
+    cout << "The value of the smallest long integer is " << oct << minLong << " in octal.\n";
+    cout << "The value of the largest unsigned long integer is " << oct << maxLongUnsigned << " in octal.\n";
+    cout << "\n";
+
+    // Declaring and assigning variables for the CALCULATED largest and smallest
+    // values of the macros under consideration
+   
+    // short ints
+    short int maxShortCalc = (pow (2, 15)) - 1;
+    short int minShortCalc = (-1 * pow (2, 15)) + 1;
+    
+    // unsigned short ints
+    unsigned short int maxShortUnsignedCalc = pow (2, 16) - 1;
+    
+    // ints
+    int maxIntCalc = (pow (2, 15)) - 1;
+    int minIntCalc = (-1 * pow (2, 15)) + 1;
+    
+    // unsigned ints
+    unsigned int maxIntUnsignedCalc = pow (2, 16) - 1;
+    
+    // long ints
+    long int maxLongCalc = pow (2, 31) - 1;
+    long int minLongCalc = (-1 * pow (2, 31)) + 1;
+    
+    // unsigned long ints
+    unsinged long int maxLongUnsignedCalc = pow (2, 32) - 1;
+    
+    cout << "I will now calculate and print the largest and smallest values of the macros\n"
+    cout << "short, int and long, in decimal, hexadecimal, and octal notation.\n"
+
+    // Print the values of the variables to the console in decimal format
+    cout << "The value of the largest short integer is " << dec << maxShortCalc << " in decimal.\n";
+    cout << "The value of the smallest short integer is " << dec << minShortCalc << " in decimal."\n;
+    cout << "The value of the largest unsigned short integer is " << dec << maxShortUnsignedCalc << " in decimal.\n";
+    cout << "The value of the largest integer is " << dec << maxIntCalc " in decimal\n";
+    cout << "The value of the smallest integer is " << dec << minIntCalc " in decimal.\n";
+    cout << "The value of the largest unsigned integer is " << dec << maxIntUnsignedCalc " in decimal.\n";
+    cout << "The value of the largest long integer is " << dec << maxLongCalc << " in decimal.\n";
+    cout << "The value of the smallest long integer is " << dec << minLongCalc << " in decimal.\n";
+    cout << "The value of the largest unsigned long integer is " << dec << MaxLongUnsignedCalc << " in decimal.\n";
+    cout << "\n";
+
+    // Print the values of the variables to the console in hexadecimal format
+    cout << "The value of the largest short integer is " << hex << maxShortCalc << " in heximal.\n";
+    cout << "The value of the smallest short integer is " << hex << minShortCalc << " in heximal."\n;
+    cout << "The value of the largest unsigned short integer is " << hex << maxShortUnsignedCalc << " in heximal.\n";
+    cout << "The value of the largest integer is " << hex << maxIntCalc " in heximal\n";
+    cout << "The value of the smallest integer is " << hex << minIntCalc " in heximal.\n";
+    cout << "The value of the largest unsigned integer is " << hex << maxIntUnsignedCalc " in heximal.\n";
+    cout << "The value of the largest long integer is " << hex << maxLongCalc << " in heximal.\n";
+    cout << "The value of the smallest long integer is " << hex << minLongCalc << " in heximal.\n";
+    cout << "The value of the largest unsigned long integer is " << hex << maxLongUnsignedCalc << " in hexadecimal.\n";
+    cout << "\n";
+
+    // Print the values of the variables to the console in octal format
+    cout << "The value of the largest short integer is " << oct << maxShortCalc << " in octal.\n";
+    cout << "The value of the smallest short integer is " << oct << minShortCalc << " in octal."\n;
+    cout << "The value of the largest unsigned short integer is " << oct << maxShortUnsignedCalc << " in octal.\n";
+    cout << "The value of the largest integer is " << oct << maxIntCalc " in octal\n";
+    cout << "The value of the smallest integer is " << oct << minIntCalc " in octal.\n";
+    cout << "The value of the largest unsigned integer is " << oct << maxIntUnsignedCalc " in octal.\n";
+    cout << "The value of the largest long integer is " << oct << maxLongCalc << " in octal.\n";
+    cout << "The value of the smallest long integer is " << oct << minLongCalc << " in octal.\n";
+    cout << "The value of the largest unsigned long integer is " << oct << maxLongUnsignedCalc << " in octal.\n";
+    cout << "\n"; 
+
+    // return 0 and exit
+    return 0
+}
+
+
+

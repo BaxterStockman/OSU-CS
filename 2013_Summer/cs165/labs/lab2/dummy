@@ -1,0 +1,21 @@
+// =====================================================================================
+//  Author:                     Matthew Schreiber
+//  Date Created:               07/07/2013 11:05:18 AM        
+//  Last Modification Date:
+//  Filename:                   function.cpp    
+//
+//  Overview:        
+//      This program computes the value of a set of different expressions.  Its purpose is to
+//      familiarize the student (that's me!) with some of the basic mathematical functions included
+//      in the <cmath> library. 
+//       
+//  Input:       
+//      There is no input from the user; all variables are defined using values set within the
+//      source code. 
+//         
+//  Output:   
+//      The program should output the value of the various expressions assigned to the variables
+//      below. 
+//
+// =====================================================================================
+

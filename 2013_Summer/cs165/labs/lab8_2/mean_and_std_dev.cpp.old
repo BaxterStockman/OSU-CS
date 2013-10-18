@@ -1,0 +1,273 @@
+// =====================================================================================
+//  Author:                     Matthew Schreiber
+//  Date Created:               08/08/2013 11:58:00 AM
+//  Last Modification Date:
+//  Filename:                   mean_and_std_dev.cpp
+//
+//  Overview:
+//
+//
+//  Input:
+//
+//
+//  Output:
+//
+//
+// =====================================================================================
+
+#include<iostream>
+#include<vector>
+#include<string>
+#include<sstream>
+#include<iterator>
+
+#define STACK_SIZE_LIMIT 8000000    // 8MB seems to be a common default
+
+using namespace std;
+
+// A double takes up 8 bytes.  The following line defines the max size
+// of a double array to be half of the specified STACK_SIZE_LIMIT,
+// which I hope is a sane value
+const int double_arr_limit = (STACK_SIZE_LIMIT / 8) / 2;
+
+void get_vector_values(vector<double> &series, string prompt);
+
+void get_dyn_array_values(double *series, int &seriesLen, string prompt);
+
+void get_static_array_values(double series[], int &seriesLen, string prompt);
+
+double mean_vector(vector<double> &series);
+
+double mean_dyn_array(double* series, const int seriesLen);
+
+double mean_static_array(double series[], const int seriesLen);
+
+double std_dev_vector(vector<double> &series);
+
+double std_dev_dyn_array(double *series);
+
+double std_dev_static_array(double series[]);
+
+void print_double(double value, string intro);
+
+int main()
+{
+    vector<double> vectSeries;
+    double *dynArrSeries;
+    double staticArrSeries[double_arr_limit];
+
+    int dynArrLen = 0;
+    int staticArrLen = 0;
+
+    double vectMean;
+    double dynArrMean;
+    double staticArrMean;
+
+    double vectStdDev;
+    double dynArrStdDev;
+    double staticArrStdDev;
+
+    string prompt = "Please enter a decimal value (enter nothing to continue): ";
+    string meanStr = "The mean of that series is: ";
+    string stdDevStr = "The standard deviation of that series is: ";
+
+    cout << endl << "Getting values for vector ---" << endl;
+    get_vector_values(vectSeries, prompt);
+    cout << endl <<  "Getting values for dynamic array ---" << endl;
+    get_dyn_array_values(dynArrSeries, dynArrLen, prompt);
+    cout << endl << "The current size of the static array is " << staticArrLen << endl;
+    cout << endl << "Getting values for static array ---" << endl;
+    get_static_array_values(staticArrSeries, staticArrLen, prompt);
+    cout << endl;
+
+    cout << dynArrSeries[0] << endl;
+
+    cout << endl << "Calculating mean for vector ---" << endl;
+    vectMean = mean_vector(vectSeries);
+    cout << endl << "Calculating mean for dynamic array ---" << endl;
+    dynArrMean = mean_dyn_array(dynArrSeries, dynArrLen);
+    cout << endl << "Calculating mean for static array ---" << endl;
+    staticArrMean = mean_static_array(staticArrSeries, staticArrLen);
+
+    vectStdDev = std_dev_vector(vectSeries);
+    dynArrStdDev = std_dev_dyn_array(dynArrSeries);
+    staticArrStdDev = std_dev_static_array(staticArrSeries);
+
+    print_double(vectMean, meanStr);
+    print_double(dynArrMean, meanStr);
+    print_double(staticArrMean, meanStr);
+    cout << endl;
+
+    print_double(vectStdDev, stdDevStr);
+    print_double(dynArrStdDev, stdDevStr);
+    print_double(staticArrStdDev, stdDevStr);
+    cout << endl;
+
+    delete [] dynArrSeries;
+
+    return 0;
+}
+
+void get_vector_values(vector<double> &series, string prompt)
+{
+    string str;
+    double element;
+
+    cout << prompt;
+    while(getline(cin, str))
+    {
+        if(str.find_first_not_of("1234567890.") == string::npos && str.length() != 0)
+        {
+            stringstream ss(str);
+            ss >> element;
+            series.push_back(element);
+        }
+        else if(str.length() == 0)
+        {
+            break;
+        }
+        else
+        {
+            cout << "That input is invalid." << endl;
+        }
+        cout << prompt;
+    }
+}
+
+void get_dyn_array_values(double* series, int &seriesLen, string prompt)
+{
+    series = new double [0];
+    string str;
+    double element;
+    double *temp;
+
+    cout << prompt;
+    while(getline(cin, str))
+    {
+        if(str.find_first_not_of("1234567890.") == string::npos && str.length() != 0)
+        {
+            stringstream ss(str);
+            ss >> element;
+            temp = new double[seriesLen+1];
+            /* if(seriesLen > 0)
+            {
+                for(int index = 0; index < seriesLen; index++)
+                    temp[index] = series[index];
+            } */
+            copy(series, series+seriesLen, temp);
+            temp[seriesLen] = element;
+            cout << "added " << element << " to temp array." << endl;
+            delete [] series;
+            series = temp;
+            seriesLen++;
+        }
+        else if(str.length() == 0)
+        {
+            break;
+        }
+        else
+        {
+            cout << "That input is invalid." << endl;
+        }
+        cout << prompt;
+    }
+    for(int index = 0; index < seriesLen; index++)
+        cout << series[index] << endl;
+}
+
+void get_static_array_values(double series[], int &seriesLen, string prompt)
+{
+    string str;
+    double element;
+
+    cout << prompt;
+    while(getline(cin, str))
+    {
+        if(seriesLen == double_arr_limit)
+        {
+            cout << "The length of the series is " << seriesLen << endl;
+            cout << "The maximum length of this array is " << double_arr_limit << endl;
+            cout << "Breaking because we've hit the limit." << endl;
+            break;
+        }
+        if(str.find_first_not_of("1234567890.") == string::npos && str.length() != 0)
+        {
+            stringstream ss(str);
+            ss >> element;
+            cout << "Adding " << element << " to static array.";
+            series[seriesLen-1] = element;
+            seriesLen++;
+        }
+        else if(str.length() == 0)
+        {
+            cout << "Breaking because you entered an empty string." << endl;
+            break;
+        }
+        else
+        {
+            cout << "That input is invalid." << endl;
+        }
+        cout << prompt;
+    }
+    cout << "Done getting static array values." << endl;
+}
+
+double mean_vector(vector<double> &series)
+{
+    cout << "Calculating mean for vector..." << endl;
+    const int seriesLen = series.size();
+    double sum;
+    double mean;
+
+    for(int index = 0; index < seriesLen; index++)
+        sum +=series.at(index);
+
+    mean = (sum / seriesLen);
+    return mean;
+}
+
+double mean_dyn_array(double *series, const int seriesLen)
+{
+    cout << "Calculating mean for dynamic array..." << endl;
+    double sum;
+    double mean;
+
+    for(int index = 0; index < seriesLen; index++)
+        sum +=series[index];
+
+    mean = (sum / seriesLen);
+    return mean;
+}
+
+double mean_static_array(double series[], const int seriesLen)
+{
+    cout << "Calculating mean for static array..." << endl;
+    double sum;
+    double mean;
+
+    for(int index = 0; index < seriesLen; index++)
+        sum +=series[index];
+
+    mean = (sum / seriesLen);
+    return mean;
+}
+
+double std_dev_vector(vector<double> &series)
+{
+    return 0;
+}
+
+double std_dev_dyn_array(double *series)
+{
+    return 0;
+}
+
+double std_dev_static_array(double series[])
+{
+    return 0;
+}
+
+void print_double(double value, string intro)
+{
+    cout << intro << " " << value << endl;
+}

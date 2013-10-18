@@ -1,0 +1,254 @@
+// =====================================================================================
+//  Author:                     Matthew Schreiber
+//  Date Created:               06/26/2213 11:44:09 PM       
+//  Last Modification Date:
+//  Filename:                   function.cpp    
+//
+//  Overview:        
+//      This program computes the value of a set of different expressions.  Its purpose is to
+//      familiarize the student (that's me!) with some of the basic mathematical functions included
+//      in the <cmath> library. 
+//       
+//  Input:       
+//      There is no input from the user; all variables are defined using values set within the
+//      source code. 
+//         
+//  Output:   
+//      The program should output the value of the various expressions assigned to the variables
+//      below. 
+//
+// =====================================================================================
+
+#include<typeinfo>
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<climits>
+
+// Define a constant that holds the number of bits in a byte
+#define NUM_BITS_IN_BYTE 8
+
+// This is here so that we don't have to use 'std::cout' every time
+// we want to write to the console
+using namespace std;
+
+// Declaring and assigning variables
+
+// short ints
+short int maxShort = SHRT_MAX;
+short int minShort = SHRT_MIN;
+    
+// unsigned short ints
+unsigned short int maxShortUnsgn = USHRT_MAX;
+
+// ints
+int maxInt = INT_MAX;
+int minInt = INT_MIN;
+
+// unsigned ints
+unsigned int maxIntUnsgn = UINT_MAX;
+
+// long ints
+long int maxLong = LONG_MAX;
+long int minLong = LONG_MIN;
+
+// unsigned long ints
+unsigned long int maxLongUnsgn = ULONG_MAX;
+
+
+// Thanks to the fourth video, Daniel Loughlin and Nathan Anderson for the
+// following means of determining the proper way to calculate the largest
+// and smallest values of the macros.
+//
+// This invokes the sizeof() function to determine the number of bytes
+// occupied by each type of macro, then converts these to bits, which are
+// then used as the exponent in the pow() function.
+//
+// For signed macros, the bit values are decreased by one to account
+// for the fact that one bit is occupied by the positive or negative sign.
+
+
+// Calculating the proper exponents for use in calculating max and min values.
+
+// short ints
+short shortBits = (NUM_BITS_IN_BYTE * sizeof(short)) - 1;
+
+// unsigned short ints
+short shortBitsUnsgn = NUM_BITS_IN_BYTE * sizeof(unsigned short);
+
+// ints
+short intBits = (NUM_BITS_IN_BYTE * sizeof(int)) - 1;
+
+// unsigned ints
+short intBitsUnsgn = NUM_BITS_IN_BYTE * sizeof(unsigned int);
+
+// long ints
+short longBits = (NUM_BITS_IN_BYTE * sizeof(long)) - 1;
+
+// unsigned long ints
+short longBitsUnsgn = NUM_BITS_IN_BYTE * sizeof(unsigned long);
+
+
+// Declaring variables for holding max and min values;
+// calculating max and min values.
+//
+// I have not followed the convention of http://www.cplusplus.com/reference/climits/
+// in adding one to get the lowest values, because this produces a number that is too
+// high by one, i.e. -32767 rather than -32768 for the lowest short.  I suspect that
+// this may be due to the positive-signed values starting at 0 and the negative-
+// signed values starting at -1: since '0' is not counted among the negative numbers,
+// there is room for one more number at the low end.
+
+// short ints
+short int maxShortCalc = (pow(2, shortBits)) - 1;
+short int minShortCalc = (-1 * pow(2, shortBits));
+
+// unsigned short ints
+unsigned short int umaxShortCalc = (pow(2, shortBitsUnsgn)) - 1;
+   
+// ints
+int maxIntCalc = (pow( 2, intBits)) - 1;
+int minIntCalc = (-1 * pow(2, intBits));
+    
+// unsigned ints
+unsigned int umaxIntCalc = (pow(2, intBitsUnsgn)) - 1;
+   
+// long ints
+long int maxLongCalc = (pow(2, longBits)) - 1;
+long int minLongCalc = (-1 * pow(2, longBits));
+   
+// unsigned long ints
+unsigned long int umaxLongCalc = (pow(2, longBitsUnsgn + 1)) - 1;
+  
+int main()
+{
+   
+    // Print the values of the variables defined above to the console
+    // in decimal, hexadecimal, and octal notation
+    
+    string preface ("| The value of the highest short int: |");
+    int prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << maxShort << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << maxShort << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << maxShort << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << maxShortCalc << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(maxShort + 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the lowest short int: |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << minShort << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << minShort << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << minShort << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << minShortCalc << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(minShort - 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the highest unsigned short int: |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << maxShortUnsgn << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << maxShortUnsgn << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << maxShortUnsgn << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << umaxShortCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(maxShortUnsgn + 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the highest int:   |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << maxInt << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << maxInt << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << maxInt << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << maxIntCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(maxInt + 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the lowest int:    |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << minInt << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << minInt << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << minInt << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << minIntCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(minInt - 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the highest unsigned int: |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << maxIntUnsgn << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << maxIntUnsgn << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << maxIntUnsgn << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << umaxIntCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(maxIntUnsgn + 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the highest long int:        |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << maxLong << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << maxLong << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << maxLong << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << maxLongCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << (maxLong + 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    preface.assign("| The value of the lowest long int:        |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << minLong << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << minLong << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << minLong << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << minLongCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(minLong - 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+    
+    preface.assign("| The value of the highest unsigned long int:        |");
+    prefLen = preface.size();
+    cout << setfill('-') << setw(prefLen) << "-" << endl;
+    cout << setfill(' ') << preface << endl; 
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| In decimal: " << setw(prefLen - 24) << right << dec << maxLongUnsgn << " |" << endl;
+    cout << setw(22) << left << "| In hexadecimal: " << setw(prefLen - 24) << right << hex << maxLongUnsgn << " |" << endl;
+    cout << setw(22) << left << "| In octal: " << setw(prefLen - 24) << right << oct << maxLongUnsgn << " |" << endl;
+    cout << setw(prefLen - 1) << left << "|" << right << "|" << endl;
+    cout << setw(22) << left << "| Calculated decimal: " << setw(prefLen - 24) << right << dec << umaxLongCalc << " |" << endl;
+    cout << setw(22) << left << "| Overflows to: " << setw(prefLen - 24) << right << dec << static_cast<short>(maxLongUnsgn + 1) << " |" << endl; 
+    cout << setfill('-') << setw(prefLen) << "-" << endl << endl;
+
+    
+    // return 0 and exit
+    return 0;
+}
+
+
+
