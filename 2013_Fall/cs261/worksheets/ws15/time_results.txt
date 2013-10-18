@@ -1,0 +1,35 @@
+Max size = 10; initial cap = 5.
+It took 1 microseconds to add 10 values to array of start size 5 through 1 doublings.
+Average cost of one addition to array is 0.100000 microseconds.
+
+Max size = 20; initial cap = 5.
+It took 2 microseconds to add 20 values to array of start size 5 through 2 doublings.
+Average cost of one addition to array is 0.100000 microseconds.
+
+Max size = 40; initial cap = 5.
+It took 1 microseconds to add 40 values to array of start size 5 through 3 doublings.
+Average cost of one addition to array is 0.025000 microseconds.
+
+Max size = 80; initial cap = 5.
+It took 2 microseconds to add 80 values to array of start size 5 through 4 doublings.
+Average cost of one addition to array is 0.025000 microseconds.
+
+Max size = 160; initial cap = 5.
+It took 2 microseconds to add 160 values to array of start size 5 through 5 doublings.
+Average cost of one addition to array is 0.012500 microseconds.
+
+Max size = 320; initial cap = 5.
+It took 4 microseconds to add 320 values to array of start size 5 through 6 doublings.
+Average cost of one addition to array is 0.012500 microseconds.
+
+Max size = 640; initial cap = 5.
+It took 6 microseconds to add 640 values to array of start size 5 through 7 doublings.
+Average cost of one addition to array is 0.009375 microseconds.
+
+
+
+
+
+
+
+
