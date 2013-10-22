@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 all: calc testda
 
 calc: dynamicArray.o calc.o
@@ -22,17 +21,3 @@ clean:
 	rm testDynArray.o
 	rm calc
 	rm testda
-=======
-CC = gcc
-CFLAGS = -Wall -std=c99 -g
-DEPS = dynArrayStack.h
-OBJ = dynArrayStack.o test.o
-
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-test: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
-
-
->>>>>>> 04b60e094953c764612fa2653427dee4da9039eb

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*  dynamicArray.h : Dynamic Array implementation. */
+=======
+/* 	dynamicArray.h : Dynamic Array implementation. */
+>>>>>>> 04b60e094953c764612fa2653427dee4da9039eb
 #include<math.h>
 
 #ifndef DYNAMIC_ARRAY_INCLUDED
@@ -6,7 +10,11 @@
 
 
 # ifndef TYPE
+<<<<<<< HEAD
 # define TYPE     double
+=======
+# define TYPE     double 
+>>>>>>> 04b60e094953c764612fa2653427dee4da9039eb
 # define TYPE_SIZE sizeof(double)
 # endif
 

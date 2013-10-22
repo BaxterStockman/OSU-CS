@@ -10,11 +10,19 @@
 
 void assertTrue(int predicate, char *message)
 {
+<<<<<<< HEAD
     printf("%s: ", message);
     if (predicate)
         printf("PASSED\n");
     else
         printf("FAILED\n");
+=======
+	printf("%s: ", message);
+	if (predicate)
+		printf("PASSED\n");
+	else
+		printf("FAILED\n");
+>>>>>>> 04b60e094953c764612fa2653427dee4da9039eb
 }
 
 
