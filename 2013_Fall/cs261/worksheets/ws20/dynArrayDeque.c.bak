@@ -1,0 +1,119 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<errno.h>
+#include "dynArrayDeque.h"
+
+#ifndef TYPE
+#define TYPE int
+#endif
+
+struct deque {
+    TYPE *data;
+    int cap;
+    int size;
+    int beg;
+    TYPE *beg_p;
+};
+
+deque_p dequeInit(int initCap) {
+    if(initCap <= 0) die("Deque capacity must be positive integer");
+    deque_p d = (deque_p)malloc(sizeof(struct deque));
+    if(!d) die("Memory error");
+    d->size = d->beg = 0;
+    d->cap = initCap;
+    d->data = (TYPE*)malloc(sizeof(TYPE) * initCap);
+    if(!d->data) die("Memory error");
+}
+
+void _dequeSetCap(deque_p d, int newCap) {
+    int i, j;
+    deque_p temp = dequeInit(newCap);
+
+    for(i = 0, j = d->beg; i < d->size; i++, j++) {
+        temp->data[i] = d->data[j];
+        if(j >= d->cap)
+            j = -1;
+    }
+
+    temp->cap = newCap;
+    temp->beg = 0;
+    temp->size = d->size;
+
+    dequeFree(d);
+    d = temp;
+}
+
+void _dequeDoubleCap(deque_p d) {
+    _dequeSetCap(d, d->size * 2);
+}
+
+void dequeFree(deque_p d) {
+    free(d->data);
+    d->data = NULL;
+    if(d->data) die("Memory error");
+    d->size = d->cap = d->beg = 0;
+}
+
+int dequeSize(deque_p d) {
+    return d->size;
+}
+
+void dequeAddFront(deque_p d, TYPE val) {
+    if(d->size >= d->cap)
+        _dequeDoubleCap(d);
+
+    // Get pointer to front of deque
+    TYPE* front = dequeFront(d);
+
+    // If the pointer to the front is the beginning
+    // of the array, set the d->beg to d->cap
+    // and reset front to point to the next address
+    // after the end of the array
+    if(front = d->data) {
+        d->beg = d->cap;
+        front = &(d->data[d->cap]);
+    }
+
+    d->beg--;
+    *(--front) = val;
+    (d->size)++;
+}
+void dequeAddBack(deque_p d, TYPE val) {
+    if(d->size >= d->cap)
+        _dequeDoubleCap(d);
+
+    TYPE* back = dequeBack(d);
+
+    if(back = &(d->data[d->cap-1]))
+        back = --(d->data);
+
+    d->beg--;
+    *(--back) = val;
+    (d->size)++;
+}
+
+void dequeRmFront(deque_p d) {
+    d->beg++;
+}
+
+void dequeRmBack(deque_p d) {
+    d->size--;
+}
+
+TYPE* dequeFront(deque_p d) {
+    return &(d->data[d->beg]);
+}
+
+TYPE* dequeBack(deque_p d) {
+    return &(d->data[d->])
+}
+
+void die(const char *message) {
+    if(errno) {
+        perror(message);
+    } else {
+        printf("ERROR: %s\n", message);
+    }
+    exit(1);
+}
+

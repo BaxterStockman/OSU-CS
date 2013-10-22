@@ -1,0 +1,24 @@
+
+    cout << "Continue with new values (Y/n)? ";
+    //cin.ignore(10000, '\n');
+    getline(cin, cont);
+    //cout << cont << endl;
+
+    reask:
+
+    // Loop until a valid yes or no answer received; goto reask, supra, input invalid;
+    // goto reinit, supra, if yes; exit if no.
+    if(cont == "" || cont == "Y" || cont == "y" || cont == "Yes" || cont == "yes")
+    {
+        goto reinit;
+    }
+    else if(cont == "N" || cont == "n" || cont == "No" || cont == "no")
+    {
+        return 0;
+    }
+    else
+    {
+        cout << "I don't understand that. Continue (Y/n)? ";
+        getline(cin, cont);
+        goto reask;
+    }

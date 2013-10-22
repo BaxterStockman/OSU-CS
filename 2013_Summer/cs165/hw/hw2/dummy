@@ -1,0 +1,36 @@
+
+        // check whether keepGoing matches particular values; restart main loop for empty string
+        // or any of four strings signifying 'yes'; set contProg to false for any of four strings
+        // signifying 'no'; loop until user enters valid selection.
+        while(1)
+        {
+            if(keepGoing == "no" || keepGoing == "No" || keepGoing == "n" || keepGoing == "N")
+            {
+                contProg = false;
+                break;
+            }
+            else if(keepGoing == "" || keepGoing == "yes" || keepGoing == "y" || keepGoing == "Y")
+            {
+                baseValue = 1;
+                outputValue = 0;
+                break;
+            }
+            else
+            {
+                cout << "I'm sorry, I don't recognize that.  Continue (Y/n)?: ";
+                getline (cin, keepGoing);
+                continue;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+

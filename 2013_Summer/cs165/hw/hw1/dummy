@@ -1,0 +1,24 @@
+// Declaring and assigning variables for the CALCULATED largest and smallest
+    // values of the macros under consideration
+   
+    // short ints
+    short int maxShortCalc = (pow (2, 15)) - 1;
+    short int minShortCalc = (-1 * pow (2, 15)) + 1;
+    
+    // unsigned short ints
+    unsigned short int umaxShortCalc = pow (2, 16) - 1;
+    
+    // ints
+    int maxIntCalc = (pow (2, 15)) - 1;
+    int minIntCalc = (-1 * pow (2, 15)) + 1;
+    
+    // unsigned ints
+    unsigned int umaxIntCalc = pow (2, 16) - 1;
+    
+    // long ints
+    long int maxLongCalc = pow (2, 31) - 1;
+    long int minLongCalc = (-1 * pow (2, 31)) + 1;
+    
+    // unsigned long ints
+    unsigned long int umaxLongCalc = pow (2, 32) - 1;
+    

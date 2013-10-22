@@ -1,0 +1,51 @@
+Question 1.
+The total cost of 32 push operations on an empty array with the stipulated parameters is 56 units:
+32 units for each push operation, 8 units for the doubling from 8 to 16 places, and 16 units for the
+doubling from 16 to 32 places.  Under this resizing strategy, a push operation has O(1) complexity:
+although exceptional operations will have very high cost (each push operation that is one higher
+than a multiple of the initial capacity and a power of two), these operations are infrequent
+compared to the overall number of pushes, and only become more rare as n increases.  This can be
+proven by demonstrating (usually in notation that isn't possible in a simple text editor) that the
+cost of n pushes, where each push in and of itself costs 1 unit, is n + sum(initial capacity * 2^i),
+where i ranges from 0 to floor(log base 2((n/initial capacity) - 1)).  This value is less than 3n,
+so the total complexity of n pushes is O(n) -- which means that the average complexity of n pushes
+is O(n)/n = O(1).
+
+Question 2.
+The formula for finding the total cost of n pushes on an array with the stipulated parameters is n +
+sum(initial capacity + 2 * j), where j ranges from 0 to floor((n - initial capacity - 1)/2).  In the
+present case, therefore, the cost is 260 units.  The average cost of a push as n grows is at least
+O(n^2), perhaps even O(n^3) or worse (I can't figure out how to translate the sum properly, so I can't derive
+the complexity with certainty).
+
+Question 3.
+Here is an informal proof that a particular series of push() and pop() operations results in O(N^2)
+performance.  The proof assumes that the stipulations of question (1) apply; namely, that the cost
+of expansion is X + 1, where X is the number of elements in the structure.  It also assumes that the
+cost of a pop() operation that results in shrinkage is X, where X is the number of elements in the
+structure prior to the pop() operation (1 cost for the pop() itself, and X - 1 cost for copying X -
+1 elements into the smaller structure).
+
+Suppose that the initial capacity of the structure is ceiling(N/2) (where the ceiling operation
+denotes rounding of any non-integral value to the next highest integer -- for instance, ceiling(5.3)
+= 6).  Suppose also that the number of elements in the array is ceiling(N/2) - 1.  Consider a
+sequence of N/2 2-tuples of push() and pop() operations, which is to say the sequence 'push(),
+pop(), push(), pop(), ..., push(), pop()', where the final pop() is the Nth operation.  The cost of
+the initial push() operation is ceiling(N/2) + 1, because the push() increases the number of
+elements to ceiling(N/2), which is the initial capacity of the array, and therefore causes an
+expansion of the structure at cost X + 1, where X = ceiling(N/2).  The following pop() operation has
+cost ceiling(N/2), because the pop() decreases the number of elements in the structure to
+ceiling(N/2) - 1, which is less than half of N and therefore causes a contraction of cost X, where X
+= ceiling(N/2).  Notice that we are back where we began: the structure can hold ceiling(N/2)
+elements, and the number of elements in the structure is ceiling(N/2) - 1.  Thus, each push(), pop()
+repetition has cost 2 * ceiling(N/2) + 1, and the total cost of N/2 2-tuples of push() and pop()
+operations is (N/2) * (2 * ceiling(N/2) + 1) = N * ceiling(N/2) + N/2.  This value is approximately
+((N^2) * (1/2)) + N/2.  Because the '1/2' and 'N/2' become increasingly insignificant as the size of
+the input N increases, the complexity of this series of operations resolves to O(N^2).
+
+As for how to fix this problem, I think that the most sensible approach is to base the shrinking
+policy on a combination of (1) the overall memory available to the program and (2) the number of
+elements in the structure, where the available memory is given much more weight in the calculation.
+Preferably, if there is plenty of memory available, the structure should shrink only rarely -- if
+ever.  This would mean that the amortized execution time of push() and pop() would stay at or
+beneath O(n).

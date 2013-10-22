@@ -1,0 +1,81 @@
+// =====================================================================================
+//  Author:                     Mattheew Schreiber
+//  Date Created:               07/07/2013 11:05:18 AM        
+//  Last Modification Date:
+//  Filename:                   function.cpp    
+//
+//  Overview:        
+//      This program computes the value of a set of different expressions.  Its purpose is to
+//      familiarize the student (that's me!) with some of the basic mathematical functions included
+//      in the <cmath> library. 
+//       
+//  Input:       
+//      There is no input from the user; all variables are defined using values set within the
+//      source code. 
+//         
+//  Output:   
+//      The program should output the value of the various expressions assigned to the variables
+//      below. 
+//
+// =====================================================================================
+
+// The following 'define' statement allows us to use pre-defined constants from the cmath library.
+// These constants can be called by invoking 'M_<constant>', such as 'M_PI" for pi.
+// Sources: http://msdn.microsoft.com/en-us/library/4hwaceh6(v=vs.80).aspx
+//          http://www.cplusplus.com/forum/general/102410/
+#define _USE_MATH_DEFINES
+
+// Here's where we include the libraries we need
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+// This variable is assigned the value of 2 to the 32nd power, minus 1
+long twoToThirtySecondLessOne = pow(2, 32) - 1;
+// 5.0 raised to the 3rd power
+double fiveToThird = pow(5.0, 3);
+
+// The square root of 25
+short twentyFiveSqrt = sqrt(25);
+
+// The square root of 96
+double ninetySixSqrt = sqrt(96);
+
+// 34.0 mod 5
+double thirtyFourModFive = fmod(34.0, 5);
+
+// sin of 90 degrees minus the cosine of 30 degrees
+double trigDifference = sin((90 * M_PI) / 180) - cos((30 * M_PI) / 180);
+
+// Natural log of 5
+double logNatFive = log(5.0);
+
+// Log base 10 of 100
+short logTenTen = log10(10);
+
+// Euler's number raised to the 5.0th power
+double eulerToFifth = pow(M_E, 5.0);
+
+// The square root of 2 to the 64th power
+long twoToSixtyFourthSqrt = sqrt(pow(2, 64));
+
+
+// The ceiling of the absolute value of -2.5
+double negTwoFiveAbsCeil = ceil(fabs(2.5));
+
+int main()
+{
+    cout << "Two raised to the 32nd power minus one is " << twoToThirtySecondLessOne << "\n";
+    cout << "THe square root of 25 is " << twentyFiveSqrt << "\n";
+    cout << "The square root of 96 is " << ninetySixSqrt << "\n";
+    cout << "34.0 mod 5 is " << thirtyFourModFive << "\n";
+    cout << "The sin of 90 degrees minus the cosine of 30 degrees is " << trigDifference << "\n";
+    cout << "The natural log of five is " << logNatFive << "\n";
+    cout << "The log base ten of one hundred is " << logTenTen << "\n";
+    cout << "Euler's number raised to the 5.0th power is " << eulerToFifth << "\n";
+    cout << "The square root of 2 to the 64th power is " << twoToSixtyFourthSqrt << "\n";
+    cout << "The ceiling of the absolute value of -2.5 is " << negTwoFiveAbsCeil << "\n";
+
+    return 0;
+}

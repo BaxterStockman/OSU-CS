@@ -1,0 +1,27 @@
+void read_command_args(string &str, string usage, int index, int argc, char *argv[])
+{
+    // make sure that what follows flag isn't another flag or out-of-range of argv[]
+    if(index+1 < argc && (argv[index+1][0] != '-' || strlen(argv[index+1]) > 3))
+    {
+        // for all in argv[] after flag, add to str if not another flag or out-of-range
+        // of argv[]
+        for(int nextArg = index+1; nextArg < argc; nextArg++)
+        {
+            if(nextArg+1 != argc && (argv[nextArg+1][0] != '-' || strlen(argv[nextArg+1]) > 3))
+            {
+                str.insert(str.size(), argv[nextArg]);
+                str.insert(str.size(), " ");
+            }
+            else
+            {
+                str.insert(str.size(), argv[nextArg]);
+                break;
+            }
+        }
+    }
+    else
+    {
+        cout << usage << endl;
+        exit(1);
+    }
+}

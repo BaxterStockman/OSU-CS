@@ -1,0 +1,19 @@
+
+        for(;;)
+        {
+            if(keepGoing == "no" || keepGoing == "No" || keepGoing == "n" || keepGoing == "N")
+            {
+                contProg = false;
+                break;
+            }
+            else if(keepGoing == "" || keepGoing == "yes" || keepGoing == "y" || keepGoing == "Y")
+            {
+                cout << endl;
+                break;
+            }
+            else
+            {
+                cout << "I'm sorry, I don't recognize that.  Continue (Y/n)?: ";
+                getline (cin, keepGoing);
+                continue;
+            }
