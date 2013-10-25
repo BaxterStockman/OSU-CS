@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head>
+  <title>[untitled]</title>
+  <style>
+/*
+ * A stylesheet designed to be used with the HTML output of the
+ * Perl module Text::VimColor.
+ *
+ * This is designed to make the highlighting look like the default gvim
+ * colour scheme, with 'background=light'.
+ *
+ * Geoff Richards (qef@laxan.com)
+ *
+ * This CSS file (light.css) is public domain.  Do what you want with it.
+ * That doesn't mean that HTML with this CSS in is public domain.
+ */
+
+body { color: black; background: white none }
+
+A:link { color: #00F; background: white none }
+A:visited { color: #909; background: white none }
+A:hover { color: #F00; background: white none }
+A:active { color: #F00; background: white none }
+
+.synComment    { color: #0000FF }
+.synConstant   { color: #FF00FF }
+.synIdentifier { color: #008B8B }
+.synStatement  { color: #A52A2A ; font-weight: bold }
+.synPreProc    { color: #A020F0 }
+.synType       { color: #2E8B57 ; font-weight: bold }
+.synSpecial    { color: #6A5ACD }
+.synUnderlined { color: #000000 ; text-decoration: underline }
+.synError      { color: #FFFFFF ; background: #FF0000 none }
+.synTodo       { color: #0000FF ; background: #FFFF00 none }
+</style>
+ </head>
+ <body>
+
+<pre><span class="synPreProc">#include </span><span class="synConstant">&quot;dynamicArray.h&quot;</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;stdio.h&gt;</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;time.h&gt;</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;stdlib.h&gt;</span>
+
+<span class="synComment">/*  VISUAL STUDIO (VS) USERS: COMMENT OUT THE LINE BELOW</span>
+<span class="synComment">    TO EXCLUDE THE MEMORY TEST CODE.</span>
+<span class="synComment">*/</span>
+<span class="synPreProc">#define MEMORY_TEST_INCLUDED</span>
+
+<span class="synPreProc">#ifdef MEMORY_TEST_INCLUDED</span>
+<span class="synComment">/* This header is needed for memory usage calculation. */</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;sys/resource.h&gt;</span>
+
+<span class="synComment">/* Function to get current memory usage in KB (Max Resident Set Size) */</span>
+<span class="synType">long</span> getMemoryUsage() {
+    <span class="synType">int</span> who = RUSAGE_SELF;
+    <span class="synType">struct</span> rusage usage;
+    <span class="synType">int</span> ret;
+    ret = getrusage(who, &amp;usage);
+    <span class="synStatement">return</span> usage.ru_maxrss;
+}
+<span class="synPreProc">#endif</span>
+
+<span class="synComment">/*Function to get number of milliseconds elapsed since program started execution*/</span>
+<span class="synType">double</span> getMilliseconds() {
+   <span class="synStatement">return</span> <span class="synConstant">1000.0</span> * clock() / <span class="synConstant">CLOCKS_PER_SEC</span>;
+}
+
+<span class="synType">int</span> main(<span class="synType">int</span> argc, <span class="synType">char</span>* argv[]){
+    DynArr* b;
+
+<span class="synPreProc">    #ifdef MEMORY_TEST_INCLUDED</span>
+    <span class="synComment">/* variables to hold memory used before and after creating DynArr */</span>
+    <span class="synType">long</span> m1, m2;
+    <span class="synComment">/* memory used BEFORE creating DynArr */</span>
+    m1 = getMemoryUsage();
+<span class="synPreProc">    #endif</span>
+
+    b = createDynArr(<span class="synConstant">1000</span>);
+
+    <span class="synStatement">if</span>( argc != <span class="synConstant">2</span> ) <span class="synStatement">return</span> <span class="synConstant">0</span>;
+    <span class="synType">int</span> n = atoi(argv[<span class="synConstant">1</span>]);<span class="synComment">/*number of elements to add*/</span>
+    <span class="synType">int</span> i;
+    <span class="synStatement">for</span>( i = <span class="synConstant">0</span> ; i &lt; n; i++)
+        addDynArr(b, (TYPE)i);<span class="synComment">/*Add elements*/</span>
+
+<span class="synPreProc">    #ifdef MEMORY_TEST_INCLUDED</span>
+    <span class="synComment">/* memory used AFTER creating LinkedList */</span>
+    m2 = getMemoryUsage();
+    printf(<span class="synConstant">&quot;Memory used by LinkedList: </span><span class="synSpecial">%ld</span><span class="synConstant"> KB </span><span class="synSpecial">\n</span><span class="synConstant">&quot;</span>, m2-m1);
+<span class="synPreProc">    #endif</span>
+
+    <span class="synType">double</span> t1 = getMilliseconds();<span class="synComment">/*Time before contains()*/</span>
+
+    <span class="synStatement">for</span>(i=<span class="synConstant">0</span>; i&lt;n; i++)
+        containsDynArr(b, i);
+
+    <span class="synType">double</span> t2 = getMilliseconds();<span class="synComment">/*Time after contains()*/</span>
+
+    printf(<span class="synConstant">&quot;Time for running containsDynArr() on </span><span class="synSpecial">%d</span><span class="synConstant"> elements:  </span><span class="synSpecial">%g\n</span><span class="synConstant">&quot;</span>, n, t2-t1);
+
+    <span class="synComment">/*  delete the dynamic array */</span>
+    deleteDynArr(b);
+
+    <span class="synStatement">return</span> <span class="synConstant">0</span>;
+}
+</pre>
+
+ </body>
+</html>

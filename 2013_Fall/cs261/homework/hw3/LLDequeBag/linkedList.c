@@ -271,11 +271,24 @@ int containsList (struct linkedList *lst, TYPE e) {
 void removeList (struct linkedList *lst, TYPE e) {
     assert(lst);
     assert(lst->size);
-    DLink *start = lst->firstLink;
-    while((start = start->next) != lst->lastLink)
+    DLink *start = lst->lastLink;
+    while((start = start->next)) {
         if(start->value == e) {
             start->next->prev = start->prev;
             start->prev->next = start->next;
             free(start);
+            break;
         }
+        if(start == lst->lastLink)
+            break;
+    }
+}
+
+void deleteLinkedList(struct linkedList *lst) {
+    assert(lst);
+    DLink *start = lst->firstLink;
+    while((start = start->next))
+        free(start->prev);
+    free(lst->lastLink);
+    free(lst);
 }

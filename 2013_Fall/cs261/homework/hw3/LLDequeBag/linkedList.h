@@ -33,5 +33,7 @@ void addList(struct linkedList *lst, TYPE v);
 int containsList(struct linkedList *lst, TYPE e);
 void removeList(struct linkedList *lst, TYPE e);
 
+/* Cleanup */
+void deleteLinkedList(struct linkedList *lst);
 #endif
 
