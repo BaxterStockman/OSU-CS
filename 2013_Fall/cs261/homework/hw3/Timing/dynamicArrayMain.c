@@ -46,9 +46,9 @@ int main(int argc, char* argv[]){
         addDynArr(b, (TYPE)i);/*Add elements*/
 
     #ifdef MEMORY_TEST_INCLUDED
-    /* memory used AFTER creating LinkedList */
+    /* memory used AFTER creating DynArr */
     m2 = getMemoryUsage();
-    printf("Memory used by LinkedList: %ld KB \n", m2-m1);
+    printf("Memory used by DynArr: %ld KB \n", m2-m1);
     #endif
 
     double t1 = getMilliseconds();/*Time before contains()*/
