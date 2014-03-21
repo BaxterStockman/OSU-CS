@@ -1,0 +1,264 @@
+=head2 Sat Mar  8 17:26:53 2014: C<Module> L<Graph|Graph>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.96>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sat Mar  8 20:19:01 2014: C<Module> L<List::MoreUtils|List::MoreUtils>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.33>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 10:48:37 2014: C<Module> L<ExtUtils::MakeMaker|ExtUtils::MakeMaker>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 6.90>
+
+=item *
+
+C<EXE_FILES: bin/instmodsh>
+
+=back
+
+=head2 Sun Mar  9 10:48:39 2014: C<Module> L<local::lib|local::lib>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.000006>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 12:13:08 2014: C<Module> L<Math::Round|Math::Round>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.06>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 12:30:12 2014: C<Module> L<List::Util|List::Util>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.38>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 18:17:56 2014: C<Module> L<List::BinarySearch::XS|List::BinarySearch::XS>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.06>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 18:17:58 2014: C<Module> L<List::BinarySearch|List::BinarySearch>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.20>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 19:41:59 2014: C<Module> L<Carp::Assert|Carp::Assert>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.20>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 19:42:01 2014: C<Module> L<Graph::Matching|Graph::Matching>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.02>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sun Mar  9 20:52:00 2014: C<Module> L<Getopt::Long|Getopt::Long>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.42>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Mon Mar 10 08:05:59 2014: C<Module> L<Parallel::ForkManager|Parallel::ForkManager>
+
+=over 4
+
+=item *
+
+C<installed into: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs325/projects/project4/inc/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.06>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

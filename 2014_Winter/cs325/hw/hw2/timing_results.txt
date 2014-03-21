@@ -1,0 +1,144 @@
+Checking execution speed for an array of 100 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  1 wallclock secs ( 0.93 usr +  0.00 sys =  0.93 CPU) @ 107.53/s (n=100)
+     algo2:  0 wallclock secs ( 0.06 usr +  0.00 sys =  0.06 CPU) @ 1666.67/s (n=100)
+            (warning: too few iterations for a reliable count)
+     algo3:  0 wallclock secs ( 0.05 usr +  0.00 sys =  0.05 CPU) @ 2000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 200 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  6 wallclock secs ( 6.53 usr +  0.00 sys =  6.53 CPU) @ 15.31/s (n=100)
+     algo2:  1 wallclock secs ( 0.27 usr +  0.00 sys =  0.27 CPU) @ 370.37/s (n=100)
+            (warning: too few iterations for a reliable count)
+     algo3:  0 wallclock secs ( 0.11 usr +  0.00 sys =  0.11 CPU) @ 909.09/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 300 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 22 wallclock secs (22.11 usr +  0.01 sys = 22.12 CPU) @  4.52/s (n=100)
+     algo2:  1 wallclock secs ( 0.63 usr +  0.00 sys =  0.63 CPU) @ 158.73/s (n=100)
+     algo3:  0 wallclock secs ( 0.19 usr +  0.00 sys =  0.19 CPU) @ 526.32/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 400 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 53 wallclock secs (52.83 usr +  0.01 sys = 52.84 CPU) @  1.89/s (n=100)
+     algo2:  1 wallclock secs ( 1.05 usr +  0.00 sys =  1.05 CPU) @ 95.24/s (n=100)
+     algo3:  0 wallclock secs ( 0.24 usr +  0.00 sys =  0.24 CPU) @ 416.67/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.01 usr +  0.00 sys =  0.01 CPU) @ 10000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 500 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 104 wallclock secs (103.96 usr +  0.01 sys = 103.97 CPU) @  0.96/s (n=100)
+     algo2:  2 wallclock secs ( 1.66 usr +  0.00 sys =  1.66 CPU) @ 60.24/s (n=100)
+     algo3:  0 wallclock secs ( 0.32 usr +  0.00 sys =  0.32 CPU) @ 312.50/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.01 usr +  0.00 sys =  0.01 CPU) @ 10000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 600 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 182 wallclock secs (181.81 usr +  0.02 sys = 181.83 CPU) @  0.55/s (n=100)
+     algo2:  3 wallclock secs ( 2.42 usr +  0.00 sys =  2.42 CPU) @ 41.32/s (n=100)
+     algo3:  0 wallclock secs ( 0.38 usr +  0.00 sys =  0.38 CPU) @ 263.16/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.01 usr +  0.00 sys =  0.01 CPU) @ 10000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 700 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 285 wallclock secs (284.57 usr +  0.02 sys = 284.59 CPU) @  0.35/s (n=100)
+     algo2:  3 wallclock secs ( 3.33 usr +  0.00 sys =  3.33 CPU) @ 30.03/s (n=100)
+     algo3:  1 wallclock secs ( 0.44 usr +  0.00 sys =  0.44 CPU) @ 227.27/s (n=100)
+    kadane:  0 wallclock secs ( 0.01 usr +  0.00 sys =  0.01 CPU) @ 10000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 800 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 423 wallclock secs (423.38 usr +  0.02 sys = 423.40 CPU) @  0.24/s (n=100)
+     algo2:  5 wallclock secs ( 4.20 usr +  0.00 sys =  4.20 CPU) @ 23.81/s (n=100)
+     algo3:  0 wallclock secs ( 0.51 usr +  0.00 sys =  0.51 CPU) @ 196.08/s (n=100)
+            (warning: too few iterations for a reliable count)
+    kadane:  0 wallclock secs ( 0.02 usr +  0.00 sys =  0.02 CPU) @ 5000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 900 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1: 601 wallclock secs (600.88 usr +  0.04 sys = 600.92 CPU) @  0.17/s (n=100)
+     algo2:  6 wallclock secs ( 5.49 usr +  0.00 sys =  5.49 CPU) @ 18.21/s (n=100)
+     algo3:  1 wallclock secs ( 0.57 usr +  0.00 sys =  0.57 CPU) @ 175.44/s (n=100)
+    kadane:  0 wallclock secs ( 0.02 usr +  0.00 sys =  0.02 CPU) @ 5000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 1000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2:  6 wallclock secs ( 6.63 usr +  0.00 sys =  6.63 CPU) @ 15.08/s (n=100)
+     algo3:  1 wallclock secs ( 0.63 usr +  0.00 sys =  0.63 CPU) @ 158.73/s (n=100)
+    kadane:  0 wallclock secs ( 0.02 usr +  0.00 sys =  0.02 CPU) @ 5000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 2000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 26 wallclock secs (26.06 usr +  0.00 sys = 26.06 CPU) @  3.84/s (n=100)
+     algo3:  1 wallclock secs ( 1.33 usr +  0.00 sys =  1.33 CPU) @ 75.19/s (n=100)
+    kadane:  0 wallclock secs ( 0.05 usr +  0.00 sys =  0.05 CPU) @ 2000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 3000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 60 wallclock secs (60.48 usr +  0.01 sys = 60.49 CPU) @  1.65/s (n=100)
+     algo3:  2 wallclock secs ( 2.07 usr +  0.00 sys =  2.07 CPU) @ 48.31/s (n=100)
+    kadane:  0 wallclock secs ( 0.07 usr +  0.00 sys =  0.07 CPU) @ 1428.57/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 4000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 105 wallclock secs (104.54 usr +  0.01 sys = 104.55 CPU) @  0.96/s (n=100)
+     algo3:  3 wallclock secs ( 2.83 usr +  0.00 sys =  2.83 CPU) @ 35.34/s (n=100)
+    kadane:  0 wallclock secs ( 0.10 usr +  0.00 sys =  0.10 CPU) @ 1000.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 5000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 162 wallclock secs (162.24 usr +  0.01 sys = 162.25 CPU) @  0.62/s (n=100)
+     algo3:  4 wallclock secs ( 3.65 usr +  0.00 sys =  3.65 CPU) @ 27.40/s (n=100)
+    kadane:  0 wallclock secs ( 0.12 usr +  0.00 sys =  0.12 CPU) @ 833.33/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 6000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 248 wallclock secs (247.24 usr +  0.02 sys = 247.26 CPU) @  0.40/s (n=100)
+     algo3:  4 wallclock secs ( 4.38 usr +  0.00 sys =  4.38 CPU) @ 22.83/s (n=100)
+    kadane:  0 wallclock secs ( 0.15 usr +  0.00 sys =  0.15 CPU) @ 666.67/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 7000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 337 wallclock secs (336.67 usr +  0.02 sys = 336.69 CPU) @  0.30/s (n=100)
+     algo3:  5 wallclock secs ( 5.30 usr +  0.00 sys =  5.30 CPU) @ 18.87/s (n=100)
+    kadane:  1 wallclock secs ( 0.17 usr +  0.00 sys =  0.17 CPU) @ 588.24/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 8000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 435 wallclock secs (435.01 usr +  0.03 sys = 435.04 CPU) @  0.23/s (n=100)
+     algo3:  6 wallclock secs ( 6.01 usr +  0.00 sys =  6.01 CPU) @ 16.64/s (n=100)
+    kadane:  0 wallclock secs ( 0.20 usr +  0.00 sys =  0.20 CPU) @ 500.00/s (n=100)
+            (warning: too few iterations for a reliable count)
+Checking execution speed for an array of 9000 random elements:
+Benchmark: timing 100 iterations of algo1, algo2, algo3, kadane...
+     algo1:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+     algo2: 535 wallclock secs (534.50 usr +  0.03 sys = 534.53 CPU) @  0.19/s (n=100)
+     algo3:  7 wallclock secs ( 6.98 usr +  0.00 sys =  6.98 CPU) @ 14.33/s (n=100)
+    kadane:  0 wallclock secs ( 0.22 usr +  0.00 sys =  0.22 CPU) @ 454.55/s (n=100)
+            (warning: too few iterations for a reliable count)

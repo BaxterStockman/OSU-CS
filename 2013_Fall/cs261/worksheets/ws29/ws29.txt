@@ -1,0 +1,26 @@
+1.  The primary characteristic of the binary tree is that it is a recursively-defined structure
+    with sorted elements.
+
+2.  ***
+
+3.  The height of the tree is 10: since each successive element is greater than or equal to the
+    previous element, each addition creates a new righthand leaf, and each node has only one
+    leaf.
+
+4.  A tree should remain balanced so as to maximize the likelihood of quick additions of new nodes
+    and retrievals of values.  If a tree becomes unbalanced, it essentially becomes a linked list,
+    and search times suffer as a result.  Worse, because the tree is ordered, insertions are more
+    costly than they would be in a plain linked list.
+
+5.  The maximum height of a 100-element BST is 100.  This happens in two cases: (1) where each
+    successive addition has a value smaller than the previous addition, and (2) where each
+    successive addition has a value greater than or equal to the previous addition.  The maximum capacity
+    of a binary tree is 2^n - 1, where n is the number of levels in the tree.  Therefore, the
+    minimum height of a tree capable of holding 100 elements is 7, since a tree with 6 levels
+    can hold at most 2^6 - 1 = 63 elements, and therefore cannot accommodate 100 elements.
+
+6.  ***
+
+7.  ***
+
+8.

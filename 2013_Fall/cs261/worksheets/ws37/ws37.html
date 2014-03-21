@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head>
+  <title>[untitled]</title>
+  <style>
+/*
+ * A stylesheet designed to be used with the HTML output of the
+ * Perl module Text::VimColor.
+ *
+ * This is designed to make the highlighting look like the default gvim
+ * colour scheme, with 'background=light'.
+ *
+ * Geoff Richards (qef@laxan.com)
+ *
+ * This CSS file (light.css) is public domain.  Do what you want with it.
+ * That doesn't mean that HTML with this CSS in is public domain.
+ */
+
+body { color: black; background: white none }
+
+A:link { color: #00F; background: white none }
+A:visited { color: #909; background: white none }
+A:hover { color: #F00; background: white none }
+A:active { color: #F00; background: white none }
+
+.synComment    { color: #0000FF }
+.synConstant   { color: #FF00FF }
+.synIdentifier { color: #008B8B }
+.synStatement  { color: #A52A2A ; font-weight: bold }
+.synPreProc    { color: #A020F0 }
+.synType       { color: #2E8B57 ; font-weight: bold }
+.synSpecial    { color: #6A5ACD }
+.synUnderlined { color: #000000 ; text-decoration: underline }
+.synError      { color: #FFFFFF ; background: #FF0000 none }
+.synTodo       { color: #0000FF ; background: #FFFF00 none }
+</style>
+ </head>
+ <body>
+
+<pre><span class="synPreProc">#include </span><span class="synConstant">&lt;stdio.h&gt;</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;stdlib.h&gt;</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;string.h&gt;</span>
+<span class="synPreProc">#include </span><span class="synConstant">&lt;assert.h&gt;</span>
+
+<span class="synPreProc">#define TYPE </span><span class="synType">int</span>
+
+<span class="synComment">/* Placeholder for an actual hash function.</span>
+<span class="synComment"> * Casts vptr (a void pointer) to a pointer to</span>
+<span class="synComment"> * an int, then dereferences it. */</span>
+<span class="synPreProc">#define HASH(vptr) (*(</span><span class="synType">int</span><span class="synPreProc">*)(vptr))</span>
+
+<span class="synComment">/* Macro which enables calling openHashTableAdd()</span>
+<span class="synComment"> * without having to explicitly create a variable</span>
+<span class="synComment"> * each time. */</span>
+<span class="synPreProc">#define tableAdd(tbl, val)         \</span>
+<span class="synStatement">do</span><span class="synPreProc"> {                               \</span>
+<span class="synPreProc">    TYPE temp = val;               \</span>
+<span class="synPreProc">    openHashTableAdd(tbl, &amp;temp);  \</span>
+<span class="synPreProc">} </span><span class="synStatement">while</span><span class="synPreProc">(</span><span class="synConstant">0</span><span class="synPreProc">)                         \</span>
+
+<span class="synType">struct</span> openHashTable {
+    <span class="synType">void</span> **table;
+    <span class="synType">int</span> tablesize;
+    <span class="synType">int</span> count;
+};
+
+<span class="synType">static</span> <span class="synType">inline</span> <span class="synType">int</span> _getHash(<span class="synType">struct</span> openHashTable *ht, <span class="synType">void</span> *value);
+<span class="synType">void</span> initOpenHashTable(<span class="synType">struct</span> openHashTable *ht, <span class="synType">int</span> size);
+<span class="synType">int</span> openHashTableSize(<span class="synType">struct</span> openHashTable *ht);
+<span class="synType">void</span> openHashTableAdd(<span class="synType">struct</span> openHashTable *ht, <span class="synType">void</span> *newValue);
+<span class="synType">int</span> openHashTableBagContains(<span class="synType">struct</span> openHashTable *ht, <span class="synType">void</span> *newValue, <span class="synType">int</span> (*compar)(<span class="synType">const</span> <span class="synType">void</span> *, <span class="synType">const</span> <span class="synType">void</span> *));
+<span class="synType">void</span> _resizeOpenHashTable(<span class="synType">struct</span> openHashTable *ht);
+<span class="synType">void</span> freeOpenHashTable(<span class="synType">struct</span> openHashTable *ht);
+<span class="synType">void</span> printOpenHashTable(<span class="synType">struct</span> openHashTable *ht, <span class="synType">char</span>* delim, <span class="synType">int</span> (*print_t)(<span class="synType">const</span> <span class="synType">char</span> *, ...),
+                        <span class="synType">void</span> (*u_print)(<span class="synType">const</span> <span class="synType">void</span> *, <span class="synType">int</span> (*u_print_t)(<span class="synType">const</span> <span class="synType">char</span> *, ...)));
+<span class="synType">void</span> my_print(<span class="synType">const</span> <span class="synType">void</span> *value, <span class="synType">int</span> (*print_t)(<span class="synType">const</span> <span class="synType">char</span> *, ...));
+
+<span class="synComment">/* Returns a hash value for *value, modded by ht-&gt;tablesize to make</span>
+<span class="synComment"> * sure that it is a valid index for ht-&gt;table. */</span>
+<span class="synType">static</span> <span class="synType">inline</span> <span class="synType">int</span> _getHash(<span class="synType">struct</span> openHashTable *ht, <span class="synType">void</span> *value) {
+    <span class="synType">int</span> idx = HASH(value) % ht-&gt;tablesize;
+    <span class="synStatement">if</span>(idx &lt; <span class="synConstant">0</span>)
+        idx += ht-&gt;tablesize;
+    <span class="synStatement">return</span> idx;
+}
+
+<span class="synType">void</span> initOpenHashTable(<span class="synType">struct</span> openHashTable *ht, <span class="synType">int</span> size) {
+    <span class="synType">int</span> i;
+    assert(size &gt; <span class="synConstant">0</span>);
+    ht-&gt;table = malloc(size * <span class="synStatement">sizeof</span>(<span class="synType">void</span>*));
+    assert(ht-&gt;table != <span class="synConstant">NULL</span>);
+    <span class="synStatement">for</span>(i = <span class="synConstant">0</span>; i &lt; size; i++)
+        ht-&gt;table[i] = <span class="synConstant">NULL</span>;
+    ht-&gt;tablesize = size;
+    ht-&gt;count = <span class="synConstant">0</span>;
+}
+
+<span class="synType">int</span> openHashTableSize(<span class="synType">struct</span> openHashTable *ht) { <span class="synStatement">return</span> ht-&gt;count; }
+
+<span class="synType">void</span> openHashTableAdd(<span class="synType">struct</span> openHashTable *ht, <span class="synType">void</span> *newValue) {
+    <span class="synStatement">if</span>((ht-&gt;count / (<span class="synType">double</span>)ht-&gt;tablesize) &gt; <span class="synConstant">0.75</span>)
+        _resizeOpenHashTable(ht);
+    ht-&gt;count++;
+
+    <span class="synType">int</span> idx = _getHash(ht, newValue);
+
+    <span class="synComment">/* Find the first free index in the table at or after</span>
+<span class="synComment">     * hashed key, wrapping around to index 0 if necessary.</span>
+<span class="synComment">     * N.B. This will cause an infinite loop if,</span>
+<span class="synComment">     * for some reason, all positions are already full.</span>
+<span class="synComment">     * However, this condition should never happen. */</span>
+    <span class="synStatement">while</span>(ht-&gt;table[idx] != <span class="synConstant">NULL</span>) {
+        idx++;
+        <span class="synStatement">if</span>(idx &gt;= ht-&gt;tablesize)
+            idx = <span class="synConstant">0</span>;
+    }
+
+    <span class="synComment">/* Allocate space for new value, then copy over new value. */</span>
+    <span class="synComment">//ht-&gt;table[idx] = newValue;</span>
+    ht-&gt;table[idx] = malloc(<span class="synStatement">sizeof</span>(<span class="synType">void</span>*));
+    memcpy(ht-&gt;table[idx], newValue, <span class="synStatement">sizeof</span>(<span class="synType">void</span>*));
+}
+
+<span class="synType">int</span> openHashTableBagContains(<span class="synType">struct</span> openHashTable *ht, <span class="synType">void</span> *newValue, <span class="synType">int</span> (*compar)(<span class="synType">const</span> <span class="synType">void</span> *, <span class="synType">const</span> <span class="synType">void</span> *)) {
+    <span class="synType">int</span> idx = _getHash(ht, newValue);
+
+    <span class="synComment">/* If the while-loop below reaches index 'stop' and doesn't</span>
+<span class="synComment">     * match the value pointed to by 'newValue', then the hash table</span>
+<span class="synComment">     * doesn't contain that value. */</span>
+    <span class="synType">int</span> stop = idx - <span class="synConstant">1</span>;
+
+    <span class="synStatement">while</span>(idx != stop) {
+        <span class="synStatement">if</span>(ht-&gt;table[idx] == <span class="synConstant">NULL</span>)
+            <span class="synStatement">return</span> <span class="synConstant">0</span>;
+        <span class="synStatement">if</span>(idx &gt;= ht-&gt;tablesize) {
+            idx = <span class="synConstant">0</span>;
+            <span class="synStatement">continue</span>;
+        }
+        <span class="synStatement">if</span>(compar(ht-&gt;table[idx], newValue) == <span class="synConstant">0</span>)
+            <span class="synStatement">return</span> <span class="synConstant">1</span>;
+        idx++;
+    }
+    <span class="synStatement">return</span> <span class="synConstant">0</span>;
+}
+
+<span class="synType">void</span> _resizeOpenHashTable(<span class="synType">struct</span> openHashTable *ht) {
+    <span class="synType">void</span> **tempTable = ht-&gt;table;
+    <span class="synType">int</span> tempSize = ht-&gt;tablesize;
+
+    initOpenHashTable(ht, ht-&gt;tablesize * <span class="synConstant">2</span>);
+
+    <span class="synType">int</span> i;
+    <span class="synStatement">for</span>(i = <span class="synConstant">0</span>; i &lt; tempSize; i++)
+        <span class="synStatement">if</span>(tempTable[i] != <span class="synConstant">NULL</span>)
+            openHashTableAdd(ht, tempTable[i]);
+
+    <span class="synStatement">for</span>(i = <span class="synConstant">0</span>; i &lt; tempSize; i++)
+        free(tempTable[i]);
+    free(tempTable);
+}
+
+<span class="synType">void</span> freeOpenHashTable(<span class="synType">struct</span> openHashTable *ht) {
+    <span class="synType">int</span> i;
+    <span class="synStatement">for</span>(i = <span class="synConstant">0</span>; i &lt; ht-&gt;tablesize; i++)
+        <span class="synStatement">if</span>(ht-&gt;table[i] != <span class="synConstant">NULL</span>)
+            free(ht-&gt;table[i]);
+    free(ht-&gt;table);
+}
+
+<span class="synType">void</span> printOpenHashTable(<span class="synType">struct</span> openHashTable *ht, <span class="synType">char</span>* delim, <span class="synType">int</span> (*print_t)(<span class="synType">const</span> <span class="synType">char</span> *, ...),
+                        <span class="synType">void</span> (*u_print)(<span class="synType">const</span> <span class="synType">void</span> *, <span class="synType">int</span> (*u_print_t)(<span class="synType">const</span> <span class="synType">char</span> *, ...))) {
+    <span class="synType">int</span> i = <span class="synConstant">0</span>;
+    <span class="synType">int</span> j = <span class="synConstant">1</span>;
+    <span class="synStatement">while</span>(ht-&gt;table[i] == <span class="synConstant">NULL</span>)
+        i++;
+    u_print(ht-&gt;table[i++], print_t);
+    <span class="synStatement">for</span>( ; i &lt; ht-&gt;tablesize &amp;&amp; j &lt;= ht-&gt;count; i++) {
+        <span class="synStatement">if</span>(ht-&gt;table[i] == <span class="synConstant">NULL</span>)
+            <span class="synStatement">continue</span>;
+        print_t(delim);
+        u_print(ht-&gt;table[i], print_t);
+        j++;
+    }
+}
+
+<span class="synType">int</span> my_compar(<span class="synType">const</span> <span class="synType">void</span> *left, <span class="synType">const</span> <span class="synType">void</span> *right) {
+    <span class="synType">int</span> l_int = *(<span class="synType">int</span>*)left;
+    <span class="synType">int</span> r_int = *(<span class="synType">int</span>*)right;
+
+    <span class="synStatement">if</span>(l_int == r_int) <span class="synStatement">return</span> <span class="synConstant">0</span>;
+    <span class="synStatement">return</span> l_int &gt; r_int ? <span class="synConstant">1</span> : -<span class="synConstant">1</span>;
+}
+
+<span class="synType">void</span> my_print(<span class="synType">const</span> <span class="synType">void</span> *value, <span class="synType">int</span> (*print_t)(<span class="synType">const</span> <span class="synType">char</span> *, ...)) {
+    <span class="synType">int</span> value_int = *(<span class="synType">int</span>*)value;
+    print_t(<span class="synConstant">&quot;</span><span class="synSpecial">%d</span><span class="synConstant">&quot;</span>, value_int);
+}
+
+<span class="synType">int</span> main(<span class="synType">void</span>) {
+    <span class="synType">struct</span> openHashTable *ht = malloc(<span class="synStatement">sizeof</span>(<span class="synType">struct</span> openHashTable));
+    initOpenHashTable(ht, <span class="synConstant">1</span>);
+
+    <span class="synType">int</span> i;
+    <span class="synStatement">for</span>(i = <span class="synConstant">0</span>; i &lt; <span class="synConstant">1000</span>; i++)
+        tableAdd(ht, i);
+
+    printOpenHashTable(ht, <span class="synConstant">&quot; * &quot;</span>, printf, my_print);
+    putchar(<span class="synSpecial">'\n'</span>);
+
+    printf(<span class="synConstant">&quot;The size of the hash table is </span><span class="synSpecial">%g</span><span class="synConstant">.</span><span class="synSpecial">\n</span><span class="synConstant">&quot;</span>, (<span class="synType">double</span>)openHashTableSize(ht));
+
+    <span class="synType">int</span> three = <span class="synConstant">3</span>;
+    <span class="synType">int</span> oneohone = <span class="synConstant">1001</span>;
+
+    <span class="synStatement">if</span>(openHashTableBagContains(ht, &amp;three, my_compar))
+        printf(<span class="synConstant">&quot;Table contains 3.</span><span class="synSpecial">\n</span><span class="synConstant">&quot;</span>);
+    <span class="synStatement">if</span>(openHashTableBagContains(ht, &amp;oneohone, my_compar))
+        printf(<span class="synConstant">&quot;Table contains 101.</span><span class="synSpecial">\n</span><span class="synConstant">&quot;</span>);
+
+    freeOpenHashTable(ht);
+    free(ht);
+
+    <span class="synStatement">return</span> <span class="synConstant">0</span>;
+}
+</pre>
+
+ </body>
+</html>

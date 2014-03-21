@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import sieve
+import argparse
+
+# Set up command line argument parsing
+parser = argparse.ArgumentParser()
+# Require an integer to be specified
+parser.add_argument("nth",
+                    help="The nth prime number",
+                    type=int)
+# Parse arguments
+args = parser.parse_args()
+
+# Use generator to access next prime until nth prime reached
+count = 0
+prime_gen = sieve.gen_prime()
+while(count < args.nth):
+    prime = prime_gen.next()
+    count += 1
+
+print prime

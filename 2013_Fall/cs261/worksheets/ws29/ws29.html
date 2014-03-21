@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head>
+  <title>[untitled]</title>
+  <style>
+/*
+ * A stylesheet designed to be used with the HTML output of the
+ * Perl module Text::VimColor.
+ *
+ * This is designed to make the highlighting look like the default gvim
+ * colour scheme, with 'background=light'.
+ *
+ * Geoff Richards (qef@laxan.com)
+ *
+ * This CSS file (light.css) is public domain.  Do what you want with it.
+ * That doesn't mean that HTML with this CSS in is public domain.
+ */
+
+body { color: black; background: white none }
+
+A:link { color: #00F; background: white none }
+A:visited { color: #909; background: white none }
+A:hover { color: #F00; background: white none }
+A:active { color: #F00; background: white none }
+
+.synComment    { color: #0000FF }
+.synConstant   { color: #FF00FF }
+.synIdentifier { color: #008B8B }
+.synStatement  { color: #A52A2A ; font-weight: bold }
+.synPreProc    { color: #A020F0 }
+.synType       { color: #2E8B57 ; font-weight: bold }
+.synSpecial    { color: #6A5ACD }
+.synUnderlined { color: #000000 ; text-decoration: underline }
+.synError      { color: #FFFFFF ; background: #FF0000 none }
+.synTodo       { color: #0000FF ; background: #FFFF00 none }
+</style>
+ </head>
+ <body>
+
+<pre><span class="synPreProc">#include</span><span class="synConstant">&lt;stdio.h&gt;</span>
+<span class="synPreProc">#include</span><span class="synConstant">&lt;stdlib.h&gt;</span>
+<span class="synPreProc">#include</span><span class="synConstant">&lt;assert.h&gt;</span>
+
+<span class="synPreProc">#define TYPE </span><span class="synType">double</span>
+
+<span class="synType">struct</span> Node {
+    TYPE value;
+    <span class="synType">struct</span> Node *left;
+    <span class="synType">struct</span> Node *right;
+};
+
+<span class="synType">struct</span> BinarySearchTree {
+    <span class="synType">struct</span> Node *root;
+    <span class="synType">int</span> size;
+};
+
+<span class="synType">void</span> initBST(<span class="synType">struct</span> BinarySearchTree *tree, TYPE newValue) {
+    tree-&gt;size = <span class="synConstant">0</span>;
+    tree-&gt;root = <span class="synConstant">NULL</span>;
+}
+
+<span class="synType">struct</span> Node * _nodeAddBST(<span class="synType">struct</span> Node *current, TYPE newValue) {
+    <span class="synComment">// if current is NULL...</span>
+    <span class="synStatement">if</span>(!current) {
+        <span class="synComment">// allocate memory for a new Node</span>
+        current = malloc(<span class="synStatement">sizeof</span>(<span class="synType">struct</span> Node));
+        <span class="synComment">// set node's value</span>
+        current-&gt;value = newValue;
+        <span class="synComment">// set left and right leaves to NULL</span>
+        current-&gt;left = <span class="synConstant">NULL</span>;
+        current-&gt;right = <span class="synConstant">NULL</span>;
+    }
+    <span class="synStatement">else</span> <span class="synStatement">if</span> (newValue &lt; current-&gt;value)
+        current-&gt;left = _nodeAddBST(current-&gt;left, newValue);
+    <span class="synStatement">else</span>
+        current-&gt;right = _nodeAddBST(current-&gt;right, newValue);
+    <span class="synStatement">return</span> current;
+}
+
+<span class="synType">void</span> addBST(<span class="synType">struct</span> BinarySearchTree *tree, TYPE newValue) {
+    <span class="synComment">// If the tree has no 'active' nodes, this will create one.</span>
+    <span class="synComment">// Otherwise, _nodeAddBST will recurse over the tree until it</span>
+    <span class="synComment">// locates the proper insertion point for the node containing</span>
+    <span class="synComment">// newValue</span>
+    tree-&gt;root = _nodeAddBST(tree-&gt;root, newValue);
+    tree-&gt;size++;
+}
+
+<span class="synType">int</span> sizeBST(<span class="synType">struct</span> BinarySearchTree *tree) {
+    <span class="synStatement">return</span> tree-&gt;size;
+}
+
+<span class="synComment">// This could have been done recursively if it took a Node</span>
+<span class="synComment">// as an argument rather than a tree.  As it is, we can still</span>
+<span class="synComment">// do this recursive by declaring a new tree each call, but that would</span>
+<span class="synComment">// be ugly and probably costly too.  So instead the function</span>
+<span class="synComment">// accomplishes its purpose using iteration.</span>
+<span class="synType">int</span> containsBST(<span class="synType">struct</span> BinarySearchTree *tree, TYPE d) {
+    <span class="synComment">// starting at the root...</span>
+    <span class="synType">struct</span> Node *current = tree-&gt;root;
+    <span class="synComment">// while we're not dealing with a NULL pointer</span>
+    <span class="synStatement">while</span>(current) {
+        <span class="synComment">// return 1 if we've found d</span>
+        <span class="synStatement">if</span>(current-&gt;value == d) <span class="synStatement">return</span> <span class="synConstant">1</span>;
+        <span class="synComment">// head left if d is less than current node's value</span>
+        <span class="synStatement">if</span>(d &lt; current-&gt;value) {
+            current = current-&gt;left;
+            <span class="synStatement">continue</span>;
+        }
+        <span class="synComment">// otherwise head to the right leaf</span>
+        <span class="synStatement">else</span> current = current-&gt;right;
+    }
+    <span class="synStatement">return</span> <span class="synConstant">0</span>;
+}
+
+TYPE _leftMostChild(<span class="synType">struct</span> Node *current) {
+    <span class="synComment">// make sure we've been passed a valid argument</span>
+    assert(current);
+    <span class="synComment">// while the left leaf is not a NULL pointer...</span>
+    <span class="synStatement">if</span>(!current-&gt;left) <span class="synStatement">return</span> current-&gt;value;
+        <span class="synComment">// keep heading down the left leaf</span>
+    <span class="synStatement">else</span> _leftMostChild(current-&gt;left);
+}
+
+<span class="synType">struct</span> Node * _removeLeftMostChild(<span class="synType">struct</span> Node *current) {
+    <span class="synStatement">if</span>(!current-&gt;left) {
+        <span class="synType">struct</span> Node *delete = current;
+        current = current-&gt;right;
+        free(delete);
+    }
+    <span class="synStatement">else</span> current-&gt;left = _removeLeftMostChild(current-&gt;left);
+    <span class="synStatement">return</span> current;
+}
+
+<span class="synComment">// N.B. Without passing a BinarySearchTree as a parameter</span>
+<span class="synComment">// there's no way to decrease the size of the tree as directed</span>
+<span class="synComment">// in the worksheet.  However, this is dealt with by decreasing</span>
+<span class="synComment">// the size in the function removeBST.</span>
+<span class="synType">struct</span> Node * _nodeRemoveBST(<span class="synType">struct</span> Node *current, TYPE d) {
+    <span class="synComment">// make sure we've been passed a valid argument</span>
+    assert(current);
+    <span class="synComment">// if we've found d...</span>
+    <span class="synStatement">if</span>(current-&gt;value == d) {
+        <span class="synComment">// if there's no right leaf...</span>
+        <span class="synStatement">if</span>(!current-&gt;right) {
+            <span class="synComment">// if there's no left leaf...</span>
+            <span class="synStatement">if</span>(!current-&gt;left) {
+                <span class="synComment">// delete current because there's nothing after it</span>
+                current = <span class="synConstant">NULL</span>;
+                <span class="synStatement">return</span> current;
+            }
+            <span class="synComment">// otherwise, delete current and substitute current-&gt;left</span>
+            <span class="synType">struct</span> Node * temp = current-&gt;left;
+            free(current);
+            current = <span class="synConstant">NULL</span>;
+            <span class="synStatement">return</span> temp;
+        }
+        <span class="synComment">// get the value of the leftmost child of the right leaf of current</span>
+        <span class="synComment">// and set it as the value of current, then delete the leftmost child</span>
+        <span class="synComment">// of the right leaf.</span>
+        <span class="synStatement">else</span> {
+            current-&gt;value = _leftMostChild(current-&gt;right);
+            current-&gt;right = _removeLeftMostChild(current-&gt;right);
+        }
+    }
+    <span class="synComment">// if d is less than the value of current, recurse on current's left leaf.</span>
+    <span class="synStatement">else</span> <span class="synStatement">if</span>(d &lt; current-&gt;value) current-&gt;left = _nodeRemoveBST(current-&gt;left, d);
+    <span class="synComment">// otherwise, recurse on current's left leaf.</span>
+    <span class="synStatement">else</span> current-&gt;right = _nodeRemoveBST(current-&gt;right, d);
+    <span class="synStatement">return</span> current;
+}
+
+<span class="synType">void</span> removeBST(<span class="synType">struct</span> BinarySearchTree *tree, TYPE d) {
+    <span class="synStatement">if</span>(containsBST(tree, d)) {
+        tree-&gt;root = _nodeRemoveBST(tree-&gt;root, d);
+        tree-&gt;size--;
+    }
+}
+
+
+</pre>
+
+ </body>
+</html>

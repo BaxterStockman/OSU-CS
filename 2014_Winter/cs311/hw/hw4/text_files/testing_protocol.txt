@@ -1,0 +1,53 @@
+/*
+*  Name: Matt Schreiber
+*  Email: schreibm@onid.oregonstate.edu
+*  Class: CS311-400
+*  Assignment: 4
+*/
+
+Besides the tests prescribed in the assignment, I did a few things that I hoped
+would test the outer bounds of my program's capabilities.  They did; it failed.
+
+(1) big.txt at http://norvig.com/big.txt
+
+This is a big (surprise!) text file that I've used for testing programs in
+other classes; for instance, as a source text for my hash map implementation in
+Data Structures.  It's never done me wrong before, and it didn't this time
+either -- although myar certainly didn't like it, responding with the universal
+machine sign of disgust (i.e. dumping core).  On one run through, Valgrind
+showed 12665(!) errors, all of which were of the form "Syscall param read (buf)
+points to unaddressable byte(s)" ('buf' being the name of the character array
+used for copying data from the source file into the archive).  However, myar
+does manage to copy 239512 lines of big.txt into an archive before keeling
+over.
+
+(2) Adding archives to themselves
+
+This worked so poorly that I eventually wrote a provision into the
+append_files() function that refuses to recursively add an archive.  At first
+when I tried this, I hadn't really thought about the problem, and sure enough
+myar didn't like reading from and writing to the same file at the same time.
+On those occasions when it managed to make it through without crashing, the
+archive format had become corrupted (extra magic headers in places they
+shouldn't be, and, I suspect, member headers on uneven bytes).  Calling myar
+with -v or -t on such files just produced an error message, and ar didn't like
+them either.
+
+After a while of that, I tried adding a function that would copy the existing
+archive to a temporary file and perform operations on that, appending the
+original archive to the file, then unlinking the original and renaming the
+temporary file.  This is essentially what I did with the delete_files()
+function, except I used system() to call /bin/cp instead of creating a new
+file with mkstemp().  For some reason that I haven't adequately investigated
+yet, this didn't work either.  For now, myar complains when told to append an
+archive to itself, skipping over the offending input.
+
+(3) Valgrind
+
+I've run each of the operations through Valgrind.  -t and -v generally pass
+with good marks, and the append operations tend to do well too (unless given
+tough input, like binary files).  Sometimes I would get errors like along the
+lines of "Conditional jump or move depends on uninitialized value", which
+seemed to have to do with a character array I was using as a buffer for reading
+data from ar_hdr structs.  I haven't eliminated the problems completely, but at
+least myar is leaking more like a cheesecloth than a sieve at this point.

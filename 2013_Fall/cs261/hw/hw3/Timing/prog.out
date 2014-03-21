@@ -1,0 +1,27 @@
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 1000 elements:  0
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 2000 elements:  0
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 4000 elements:  30
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 8000 elements:  130
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 16000 elements:  550
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 32000 elements:  2200
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 64000 elements:  8850
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 128000 elements:  35400
+
+Memory used by DynArr: 0 KB 
+Time for running containsDynArr() on 256000 elements:  141710
+

@@ -1,0 +1,31 @@
+/*
+  Name: Matt Schreiber
+  Email: schreibm@onid.oregonstate.edu
+  Class: CS311-400
+  Assignment: 2
+
+  $RCSFile$
+  $Revision: 1.1 $
+  $Author: schreibm $
+  $Date: 2014/01/21 06:27:57 $
+  $Log: Problem8.txt,v $
+  Revision 1.1  2014/01/21 06:27:57  schreibm
+  Initial revision
+
+*/
+
+Reading symbols from /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs311/homework/hw2/Problem8...done.
+(gdb) run
+Starting program: /nfs/stak/students/s/schreibm/docs/osu/2014_Winter/cs311/homework/hw2/Problem8
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000000000040049c in func (ptr=0x0) at Problem8.c:10
+10	        ptr[i] = i;
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.132.el6.x86_64
+(gdb) bt
+#0  0x000000000040049c in func (ptr=0x0) at Problem8.c:10
+#1  0x00000000004004cd in main (argc=1, argv=0x7fffffffe1b8) at Problem8.c:18
+(gdb) print ptr
+$1 = (int *) 0x0
+(gdb) print i
+$2 = 0

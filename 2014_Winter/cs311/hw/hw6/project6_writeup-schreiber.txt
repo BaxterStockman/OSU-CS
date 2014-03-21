@@ -1,0 +1,38 @@
+Name: Matt Schreiber
+Email: schreibm@onid.oregonstate.edu
+Class: CS311-400
+Assignment: 6
+
+Although the sources which have taken a stance on the issue indicate that the
+likely best method of load-balancing a multithreaded/multiprocess prime-finder
+is to assign a partition of the bitmap to each worker (see, e.g.,
+http://create.stephan-brumme.com/eratosthenes/#blockwiseopenmp), I was
+motivated by simplicity as well as efficiency, so I chose a somewhat different
+strategy.
+
+Upon creation, each worker is assigned a prime from a hardcoded array of known
+primes.  The worker marks off multiples of its assigned prime while other
+workers are doing the same; thanks to functions like __sync_add_and_fetch() and
+its brethren (documentation at "Built-in functions for atomic memory access",
+http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Atomic-Builtins.html), this could
+be accomplished without juggling mutexes (mutices? ;) or semaphores.
+
+When a worker reaches a multiple of its prime in excess of the square root of
+the specified range, it verifies that the other workers are in (or about to be
+in) the process of marking their primes.  This is done to ensure that, when the
+worker looks for the next available prime number, it doesn't inadvertently
+select a prime that's already been assigned to another process (or, heaven
+forbid, a non-prime).  The system isn't foolproof -- for instance, it only checks
+that the other threads are poised to enter the subroutine that marks
+composites, but relies on the assumption that the other threads have actually
+started marking composites -- but so far it has worked without error.
+
+I am far from having proof that my scheme allots roughly equal tasks to each
+worker, but intuitively it seems to make sense: workers whose
+currently-assigned prime takes relatively longer to factor will tend to be
+assigned relatively fewer primes overall, and vice-versa for threads assigned
+numbers that are relatively easier to factor.  One type takes longer for a
+given prime but has to deal with fewer primes, while the other doesn't take as
+long but has to deal with more primes, hopefully entailing that the product
+'primes * time per prime' tends to converge for each thread.
+

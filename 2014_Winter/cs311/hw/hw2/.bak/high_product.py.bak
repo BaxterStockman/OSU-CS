@@ -1,0 +1,38 @@
+#!/usr/bin/env python2
+
+import superlative
+import argparse
+
+# Set up command line argument parsing
+parser = argparse.ArgumentParser()
+# Require a digit group size to be specified
+parser.add_argument("interval",
+                    help="size of digit groupings",
+                    type=int)
+# Allow the caller to specify either a number or file
+# containing a number, but not both
+data = parser.add_mutually_exclusive_group()
+data.add_argument("-n", "--number",
+                  help="an integer",
+                  type=int)
+data.add_argument("-f", "--file",
+                  help="a file containing a contiguous decimal number",
+                  type=argparse.FileType('r'))
+# Parse arguments
+args = parser.parse_args()
+
+# Make sure that the user specified a number or file
+if not(args.number or args.file):
+    parser.exit(0, "{}{}: too few arguments\n"
+                .format(parser.format_usage(), parser.prog))
+
+# Attempt to read file and store number in file in 'args.number'
+if(args.file):
+    try:
+        args.number = int(args.file.read())
+    except (IOError, OSError) as err:
+        "Failure reading {}: {}".format(args.file, err.strerror)
+
+print superlative.get_superlative(args.number, args.interval,
+                                  lambda x, y: x * y,
+                                  lambda x, y: x > y)

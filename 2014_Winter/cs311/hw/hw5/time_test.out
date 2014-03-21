@@ -1,0 +1,449 @@
+perl time_uniqify.pl
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.03 cusr  0.00 csys =  0.03 CPU) @ 33.33/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.43 csys =  0.44 CPU) @  2.27/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.04 cusr  0.01 csys =  0.05 CPU) @ 20.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.37 csys =  0.38 CPU) @  2.63/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.01 sys +  0.04 cusr  0.01 csys =  0.06 CPU) @ 16.67/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.37 csys =  0.38 CPU) @  2.63/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.03 cusr  0.01 csys =  0.04 CPU) @ 25.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.02 cusr  0.40 csys =  0.42 CPU) @  2.38/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.01 sys +  0.03 cusr  0.01 csys =  0.05 CPU) @ 20.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.03 cusr  0.40 csys =  0.43 CPU) @  2.33/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.03 cusr  0.01 csys =  0.04 CPU) @ 25.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.02 cusr  0.44 csys =  0.46 CPU) @  2.17/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.04 cusr  0.01 csys =  0.05 CPU) @ 20.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.01 sys +  0.02 cusr  0.47 csys =  0.50 CPU) @  2.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/decl-indep.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.03 cusr  0.01 csys =  0.04 CPU) @ 25.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.02 cusr  0.42 csys =  0.44 CPU) @  2.27/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.81 cusr  0.03 csys =  0.84 CPU) @  1.19/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.15 cusr  6.99 csys =  7.14 CPU) @  0.14/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.56 cusr  0.02 csys =  0.58 CPU) @  1.72/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.14 cusr  7.60 csys =  7.74 CPU) @  0.13/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.80 cusr  0.03 csys =  0.83 CPU) @  1.20/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  5 wallclock secs ( 0.00 usr  0.00 sys +  0.17 cusr  8.55 csys =  8.72 CPU) @  0.11/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.81 cusr  0.03 csys =  0.84 CPU) @  1.19/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  5 wallclock secs ( 0.00 usr  0.00 sys +  0.24 cusr 10.31 csys = 10.55 CPU) @  0.09/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.61 cusr  0.02 csys =  0.63 CPU) @  1.59/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.16 cusr  8.03 csys =  8.19 CPU) @  0.12/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.33 cusr  0.00 csys =  0.33 CPU) @  3.03/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  6 wallclock secs ( 0.00 usr  0.00 sys +  0.20 cusr 10.09 csys = 10.29 CPU) @  0.10/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.81 cusr  0.02 csys =  0.83 CPU) @  1.20/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  5 wallclock secs ( 0.00 usr  0.00 sys +  0.18 cusr  8.58 csys =  8.76 CPU) @  0.11/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/dictionary.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.33 cusr  0.02 csys =  0.35 CPU) @  2.86/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  5 wallclock secs ( 0.00 usr  0.00 sys +  0.18 cusr  8.88 csys =  9.06 CPU) @  0.11/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.92 cusr  0.02 csys =  0.94 CPU) @  1.06/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  2 wallclock secs ( 0.00 usr  0.00 sys +  0.08 cusr  4.95 csys =  5.03 CPU) @  0.20/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.39 cusr  0.01 csys =  0.40 CPU) @  2.50/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  2 wallclock secs ( 0.00 usr  0.00 sys +  0.12 cusr  5.07 csys =  5.19 CPU) @  0.19/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  1.00 cusr  0.02 csys =  1.02 CPU) @  0.98/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.18 cusr  5.64 csys =  5.82 CPU) @  0.17/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.89 cusr  0.02 csys =  0.91 CPU) @  1.10/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.16 cusr  5.58 csys =  5.74 CPU) @  0.17/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.87 cusr  0.03 csys =  0.90 CPU) @  1.11/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.16 cusr  5.91 csys =  6.07 CPU) @  0.16/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  1.17 cusr  0.02 csys =  1.19 CPU) @  0.84/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.18 cusr  6.06 csys =  6.24 CPU) @  0.16/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.76 cusr  0.01 csys =  0.77 CPU) @  1.30/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.27 cusr  6.30 csys =  6.57 CPU) @  0.15/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/iliad.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.39 cusr  0.01 csys =  0.40 CPU) @  2.50/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.28 cusr  6.26 csys =  6.54 CPU) @  0.15/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.02 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple1.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.02 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.00 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.01 csys =  0.01 CPU) @ 100.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/simple2.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.02 CPU) @ 50.00/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 14 wallclock secs ( 0.00 usr  0.00 sys + 17.25 cusr  0.21 csys = 17.46 CPU) @  0.06/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 70 wallclock secs ( 0.00 usr  0.00 sys +  3.66 cusr 134.98 csys = 138.64 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 15 wallclock secs ( 0.00 usr  0.00 sys + 18.96 cusr  0.23 csys = 19.19 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 76 wallclock secs ( 0.00 usr  0.00 sys +  4.92 cusr 144.96 csys = 149.88 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 16 wallclock secs ( 0.00 usr  0.00 sys + 21.01 cusr  0.24 csys = 21.25 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 78 wallclock secs ( 0.00 usr  0.00 sys +  4.40 cusr 151.70 csys = 156.10 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 16 wallclock secs ( 0.00 usr  0.00 sys + 19.29 cusr  0.25 csys = 19.54 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 77 wallclock secs ( 0.00 usr  0.00 sys +  4.67 cusr 151.56 csys = 156.23 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 17 wallclock secs ( 0.00 usr  0.00 sys + 21.35 cusr  0.31 csys = 21.66 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 80 wallclock secs ( 0.00 usr  0.00 sys +  4.58 cusr 156.65 csys = 161.23 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 16 wallclock secs ( 0.00 usr  0.00 sys + 19.39 cusr  0.28 csys = 19.67 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 81 wallclock secs ( 0.00 usr  0.00 sys +  3.83 cusr 160.63 csys = 164.46 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 16 wallclock secs ( 0.00 usr  0.00 sys + 19.82 cusr  0.28 csys = 20.10 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 80 wallclock secs ( 0.00 usr  0.00 sys +  3.43 cusr 157.56 csys = 160.99 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/websters.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash: 15 wallclock secs ( 0.00 usr  0.00 sys + 18.70 cusr  0.21 csys = 18.91 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c: 82 wallclock secs ( 0.00 usr  0.00 sys +  3.59 cusr 163.48 csys = 167.07 CPU) @  0.01/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 1 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.88 cusr  0.03 csys =  0.91 CPU) @  1.10/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.14 cusr  6.77 csys =  6.91 CPU) @  0.14/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 2 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.35 cusr  0.01 csys =  0.36 CPU) @  2.78/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  3 wallclock secs ( 0.00 usr  0.00 sys +  0.18 cusr  6.77 csys =  6.95 CPU) @  0.14/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 3 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.58 cusr  0.02 csys =  0.60 CPU) @  1.67/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.23 cusr  8.59 csys =  8.82 CPU) @  0.11/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 4 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.84 cusr  0.03 csys =  0.87 CPU) @  1.15/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.21 cusr  8.17 csys =  8.38 CPU) @  0.12/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 5 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.86 cusr  0.03 csys =  0.89 CPU) @  1.12/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.20 cusr  7.82 csys =  8.02 CPU) @  0.12/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 10 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.38 cusr  0.02 csys =  0.40 CPU) @  2.50/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.19 cusr  7.82 csys =  8.01 CPU) @  0.12/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 15 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  0 wallclock secs ( 0.00 usr  0.00 sys +  0.54 cusr  0.01 csys =  0.55 CPU) @  1.82/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  4 wallclock secs ( 0.00 usr  0.00 sys +  0.22 cusr  8.42 csys =  8.64 CPU) @  0.12/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+Running 1 iterations of uniqify on test_files/words.txt with 20 sorters...
+Benchmark: timing 1 iterations of uniqify.bash, uniqify.c...
+uniqify.bash:  1 wallclock secs ( 0.00 usr  0.00 sys +  0.85 cusr  0.02 csys =  0.87 CPU) @  1.15/s (n=1)
+            (warning: too few iterations for a reliable count)
+ uniqify.c:  5 wallclock secs ( 0.00 usr  0.00 sys +  0.20 cusr  8.53 csys =  8.73 CPU) @  0.11/s (n=1)
+            (warning: too few iterations for a reliable count)
+

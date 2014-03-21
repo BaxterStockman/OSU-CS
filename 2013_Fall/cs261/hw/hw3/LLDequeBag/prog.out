@@ -1,0 +1,27 @@
+Memory used by LinkedList: 0 KB 
+Time for running contains() on 1000 elements: 0 ms
+
+Memory used by LinkedList: 0 KB 
+Time for running contains() on 2000 elements: 10 ms
+
+Memory used by LinkedList: 0 KB 
+Time for running contains() on 4000 elements: 30 ms
+
+Memory used by LinkedList: 0 KB 
+Time for running contains() on 8000 elements: 120 ms
+
+Memory used by LinkedList: 0 KB 
+Time for running contains() on 16000 elements: 510 ms
+
+Memory used by LinkedList: 0 KB 
+Time for running contains() on 32000 elements: 2050 ms
+
+Memory used by LinkedList: 764 KB 
+Time for running contains() on 64000 elements: 8240 ms
+
+Memory used by LinkedList: 2764 KB 
+Time for running contains() on 128000 elements: 33020 ms
+
+Memory used by LinkedList: 6764 KB 
+Time for running contains() on 256000 elements: 214780 ms
+
