@@ -1,0 +1,68 @@
+1.  Persistent and non-persistent HTTP connections:
+    a.  Eight requests: the initial request, the request for the index file, and
+        one request for each of thesix additional objects.
+    b.  Also eight requests.  What differs between persistent and
+        non-persistent connections is not the number of requests for a given object
+        or set of objects, but rather the ratio of connections to requests: with a
+        non-persistent connection, there is one connection for every request, but
+        with persistent connections there may be arbitrarily many requests for
+        every connection.
+    c.  The persistent connection is likely to be faster by at least 18 seconds
+        or so, which represents two seconds for each of the nine additional
+        connections that the non-persistent link must make. Depending on how
+        quickly the server sends replies, the persistent connection may be even
+        faster, since with such a connection "requests for objects can be made
+        back-to-back, without waiting for replies to pending requests" (p. 103
+        of our textbook).
+
+2.  Accessing web and mail services
+    a.  web services: telnet x.y.z.com 80
+    b.  mail services: telnet x.y.z.com 25
+
+3.  The additional CrLf that separates the header and body of an HTTP request
+    is a convention established by RFC 1945, section 4.1, "Message Types".
+    This convention facilitates a uniform means of distinguishing a request's
+    header from its body.
+
+4.  Usability considerations vs. privacy
+
+5.  The time saved if the file has not been modified is likely to be very close
+    to the time it takes to transmit the file from the origin server to the
+    proxy, i.e. about 3MiB / 1.54 Mbps ~= 15.584 seconds.  The
+    file should be propagated between the proxy and the client in the same
+    amount of time in both cases.  Moreover, since an 'if-modified-since' request
+    returns the requested resource if it has been modified since the specified
+    time, no additional requests are needed and hence no extra latency is
+    introduced.
+
+6.  One channel is used for control commands and the other for data
+    transmission.
+
+7.  One major difference between the protocols is that POP3 deletes messages
+    from the mail server when it downloads them to the user's computer, whereas
+    IMAP leaves copies on the server.
+
+8.  Separate protocols are needed mainly because of the proliferation of
+    always-on remote mail servers, which happened as a response to demand for
+    consistent mail transmission that does not rely on a particular mail
+    recipient's machine to be on at the time of mail dispatch.  SMTP is a
+    'push' protocol, meaning that data is pushed from the client machine onto
+    the server, which makes it inappropriate for transmitting mail from server
+    to recipient: it relies, as does direct sender-recipient transmission, on
+    the assumption that there's an active machine at the receiving end.  That
+    is why we now have the 'pull' protocols POP3 and IMAP.
+
+
+9.
+
+10. 32 bits of 'em :v).  I.e. 4294967296.
+
+11. The values range from 0-255.
+
+12. The Public Interest Registry, according to
+    http://en.wikipedia.org/wiki/.org
+
+13. DNS request with ID # 46921
+    a.  Little-endian representation:
+    b.  Big-endian representation: B749
+    c.  *

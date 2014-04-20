@@ -1,0 +1,24 @@
+Please enter a fake email address: Please enter a target email address: Please enter a subject line: Please enter at least two lines of text (Hit Ctrl+d to finish):
+spawn telnet mail.engr.orst.edu 25
+Trying 128.193.40.2...
+Connected to mail.engr.orst.edu.
+Escape character is '^]'.
+220 zen.engr.oregonstate.edu ESMTP Sendmail 8.14.4/8.14.4; Tue, 8 Apr 2014 13:10:29 -0700
+HELO 146-115-128-218.c3-0.nwt-ubr1.sbo-nwt.ma.cable.rcn.com
+250 zen.engr.oregonstate.edu Hello flip3.engr.oregonstate.edu [128.193.54.10], pleased to meet you
+MAIL FROM: this@that.com
+250 2.1.0 this@that.com... Sender ok
+RCPT TO: osu.cs372@gmail.com
+250 2.1.5 osu.cs372@gmail.com... Recipient ok
+DATA
+from: this@that.com
+to: osu.cs372@gmail.com
+subject: Third spoof attempt
+Hi Professor - Matt Schreiber again.  Not sure the first two emails
+made it through, as my little spoofing script keeps throwing errors
+related to the contents of the subject line being interpreted as 
+commands by the 'expect' program.  Anyway, hopefully this one gets
+through!
+.
+354 Enter mail, end with "." on a line by itself
+250 2.0.0 s38KATvR026663 Message accepted for delivery

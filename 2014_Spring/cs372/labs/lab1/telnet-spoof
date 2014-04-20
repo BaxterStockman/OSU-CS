@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+returned=""
+function get_input() {
+    prompt=$1
+    error=$2
+    regexp=$3
+    readcmd=$4
+    echo -n "$prompt: "
+    read input
+    while true; do
+        if [[ -n $regexp ]]; then
+            valid=$(echo $input | perl -wne "$regexp and print")
+        else
+            valid="valid"
+        fi
+        if [[ -z $input || -z $valid ]]; then
+            echo -n "$error: "
+            read email
+            continue
+        else
+            returned=$input
+            break
+        fi
+    done
+}
+
+DN=$(who | perl -wne '/\Aschreibm.*\((.*)\)\Z/ and print $1' )
+MS="mail.engr.orst.edu"
+port="25"
+
+get_input "Please enter a fake email address" "That is not a valid address" '/\A[\w.-]+\@[\w.-]+\Z/'
+src_email=$returned
+
+get_input "Please enter a target email address" "That is not a valid address" '/\A[\w.-]+\@[\w.-]+\Z/'
+target_email=$returned
+
+get_input "Please enter a subject line" "No subject given. Please try again"
+subject=$returned
+
+echo "Please enter at least two lines of text (Hit Ctrl+d to finish):"
+msg_text=$(cat)
+
+data="DATA\nfrom: $src_email\nto: $target_email\nsubject: $subject\n$msg_text\n."
+
+expect << EOF
+    set timeout 1
+    spawn telnet $MS $port
+    expect "HELO"
+    send "HELO $DN\r"
+    expect "MAIL FROM: "
+    send "MAIL FROM: $src_email\r"
+    expect "RCPT TO"
+    send "RCPT TO: $target_email\r"
+    expect "DATA"
+    send "$data\r"
+    expect "QUIT"
+    send "QUIT\r"
+    exit
+EOF

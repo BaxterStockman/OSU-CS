@@ -1,0 +1,1 @@
+{"dist":"Spiffy-0.31","name":"Spiffy","version":"0.31","pathname":"I/IN/INGY/Spiffy-0.31.tar.gz","target":"Spiffy","provides":{"Spiffy::mixin":{"file":"lib/Spiffy/mixin.pm"},"Spiffy":{"file":"lib/Spiffy.pm","version":"0.31"}}}

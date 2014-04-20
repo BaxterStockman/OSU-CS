@@ -1,0 +1,45 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use utf8;
+use Data::Dumper;
+
+my $geoloc_file = "GeoIPCountryWhois.csv";
+my $asn_file = "GeoIPASNum2.csv";
+my %geolocs;
+my %asns;
+
+open my $fh, '<', $geoloc_file or die "$0: Failed to open $geoloc_file: $!\n";
+
+while( <$fh> ) {
+    /\A.*"(\d+)","(\d+)","\w{2}","(\w+)"\Z/;
+    #unless (defined $1 and defined $2 and defined $3) {
+    #    print "$1 $2 $3\n";
+    #}
+    $geolocs{$1} = $3 unless defined $geolocs{$1};
+    $geolocs{$2} = $3 unless defined $geolocs{$2};
+}
+
+open $fh, '<', $asn_file or die "$0: Failed to open $asn_file: $!\n";
+
+while( <$fh> ) {
+    /\A(\d+),(\d+),"(AS\d+) ([\w .]+)"\Z/;
+    my ($asn, $host, $geoloc1, $geoloc2) = ($3, $4, $1, $2);
+    my $country1 = $geolocs{$geoloc1} // $asns{$asn}->{ country1 };
+    my $country2 = $geolocs{$geoloc2} // $asns{$asn}->{country2 };
+    $asns{$asn} = { host => $host,
+                    country1 => $country1,
+                    country2 => $country2
+                };
+}
+
+foreach my $asn ( keys %asns ) {
+    my ( $host, $country1, $country2 ) = (
+       $asns{$asn}->{host},
+       $asns{$asn}->{country1},
+       $asns{$asn}->{country2}
+    );
+    my $country = $country1 // $country2 // "NULL";
+    print "$asn,$host,$country\n";
+}

@@ -1,0 +1,49 @@
+1.  Problems of wireless networking
+    a.  Increased insecurity - because the traffic between client an base
+        station is broadcast over airwaves accessible to everyone in the
+        vicinity, packet sniffers and other technologies can easily capture the
+        content of the exchanges and save it for later analysis, possibly for
+        nefarious purposes.
+    b.  Reliability of transmission - wireless transceivers must be capable of
+        identifying and separating traffic from different clients out of the soup
+        of transmissions pervading the various channels.
+
+2.  This sort of segregation between layers makes it possible to make changes,
+    potentially even radical changes, to how a particular layer is implemented
+    without breaking the functionality of the other layers, so long as they
+    respect the API and don't tie into any behind-the-scenes magic.
+
+3.  This process is called 'encapsulation'
+
+4.  Packet sniffing is the interception of packets as they are being passed
+    over a network.
+
+5.  Viruses and spyware fall along distinct axes of classification of malware:
+    what makes a piece of malware a virus is the infection vector (unlike
+    worms, viruses require user intervention in order to infect a host); what
+    make it spyware is the sort of activity it engages in (relaying data from
+    the infected host, often sensitive data such as account credentials or
+    financial information).
+
+6.  Client-server architecture is typified by relatively rigid differentiation
+    between participants in network activities: there are clients who initiate
+    communications, request resources, etc., and an always-on server that
+    responds to requests, serves contents, etc..  By contrast, peer-to-peer
+    architecture does not require the existence of an always-on server, instead
+    distributing the various functions a server performs over a fluctuating
+    collection of machines known as 'peers'.
+
+7.  The Cray Unified Resource Manager, which is 'a job scheduler that provides
+    a high-level method of controlling the allocation of system resources to run
+    jobs', according to the docs at:
+    http://docs.cray.com/books/2150_3.3/html-2150_3.3/z838168761las.html
+
+8.  Application layer protocols manage communication from process to process.
+
+9.  TCP vs. UDP
+    a.  Email uses TCP because TCP guarantees reliable transmission without
+        loss of data.
+    b.  VoIP often uses UDP (reverting to TCP if that is unavailable) because
+        UDP is simpler and lighter-weight interface than TCP.  Although UDP is
+        more unreliable than TCP, VoIP can tolerate out-of-order or dropped
+        packets without causing a major fault.

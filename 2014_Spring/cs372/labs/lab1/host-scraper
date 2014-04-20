@@ -1,0 +1,85 @@
+#!/usr/bin/env perl
+
+# Usage: host-scraper "SHELL COMMAND" "COUNTRY1" "COUNTRY2" .. "COUNTRYn"
+# (Shell comamnd must be the first argument.  Quotes are mandatory for multi-
+# argument commands, and also for multi-word country names)
+
+use lib qw( ./inc/lib/perl5 );
+use strict;
+use warnings;
+use utf8;
+use URI;
+use Web::Scraper;
+use List::MoreUtils qw( any );
+
+my $site = 'http://traceroute.org/';
+my $hosts_file = "hosts_by_asn.csv";
+my $cmd = shift or die "$0: no command specified\n";
+my @targets = @ARGV unless @ARGV == 0 and die "$0: no target countries specified\n";
+my %asns;
+
+open my $fh, '<', $hosts_file or die "$0: Failed to open $hosts_file: $!\n";
+
+while( <$fh> ) {
+    /\A(.*),(.*),(.*)\Z/;
+    $asns{$1} = {
+        host => $2,
+        country => $3
+    };
+}
+
+my $hosts = scraper {
+    process "li > a", "hosts[]" => sub {
+        my $item = shift;
+        my ( $addr, $text ) = ( $item->attr('href'), $item->as_text );
+        $addr =~ s|\A.*://(www.)?||;
+        $addr =~ s|/+.*\Z||;
+        $text =~ /\A(.*)\s+\((AS\d+)\)/;
+        return {
+            addr => $addr,
+            name => $1,
+            asn => $2
+        };
+    };
+};
+
+
+my $res = $hosts->scrape( URI->new( $site ) );
+
+my %countries;
+for my $item ( @{$res->{hosts}} ) {
+    my( $addr, $name, $asn ) = ( $item->{addr}, $item->{name}, $item->{asn} );
+    my $country;
+    eval {
+        $country = $asns{$asn}->{country} if defined $asn;
+    };
+
+    if( defined $country && defined $addr ) {
+        next unless any { lc $_ eq lc $country } @targets;
+        $countries{$country} = [] unless defined $countries{$country};
+        if ( defined $asn && defined $addr ) {
+            push $countries{$country}, {
+                asn => $asn,
+                name => $name,
+                host => $asns{$asn}->{host},
+                addr => $addr
+            };
+        }
+    }
+}
+
+for my $country ( sort keys %countries ) {
+    print "#" x 79 . "\n";
+    print uc $country . "\n";
+    print "#" x 79 . "\n\n";
+    my $ping_res;
+    for my $host (@{$countries{$country}}) {
+        print "$host->{name}:\n";
+        $ping_res = `$cmd $host->{addr}`;
+        for my $line ( $ping_res ) {
+            print "$line\n";
+        }
+        print "\n";
+    }
+}
+
