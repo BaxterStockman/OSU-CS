@@ -1,0 +1,4 @@
+[submodule "2014_Spring/cs496/hw/hw2"]
+	path = 2014_Spring/cs496/hw/hw2
+#	url = https://github.com/BaxterStockman/PositiveContact
+	url = git@github.com:BaxterStockman/PositiveContact
